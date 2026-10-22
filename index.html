@@ -506,9 +506,9 @@ body{background:transparent!important;transition:none!important}
 #avs{position:fixed;inset:0;z-index:11;background:var(--bg);overflow:auto;padding:calc(4px + env(safe-area-inset-top,0px)) 14px calc(20px + env(safe-area-inset-bottom,0px))}
 #avs[hidden]{display:none}
 #avs .aw{max-width:520px;margin:0 auto}
-#avs h2{font-size:clamp(30px,9vw,42px);line-height:1;letter-spacing:.02em;font-weight:900;margin-top:0}
-#avs .am{font-size:20px;line-height:1.5;margin:22px 0 0}
-#avs .ct{font-size:13px;line-height:1.5;color:var(--mute);margin:22px 0 0}
+#avs h2{font-size:clamp(26px,8vw,36px);line-height:1;letter-spacing:.02em;font-weight:900;margin-top:0}
+#avs .am{font-size:17px;line-height:1.45;margin:16px 0 0}
+#avs .ct{font-size:12px;line-height:1.45;color:var(--mute);margin:16px 0 0}
 #avs .ct a{color:inherit;text-decoration:underline}
 #avs .ct.mt{margin:6px 0 0}
 #dic{position:fixed;inset:0;z-index:15;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;padding:calc(14px + env(safe-area-inset-top,0px)) 14px calc(14px + env(safe-area-inset-bottom,0px))}
@@ -516,7 +516,7 @@ body{background:transparent!important;transition:none!important}
 #dic .dbx{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:3px;width:100%;max-width:480px;max-height:100%;overflow:auto;padding:16px 16px 18px}
 #dic h2{font-size:24px;font-weight:900;letter-spacing:.02em;line-height:1.1;margin:0 0 4px}
 #dic p{font-size:16px;line-height:1.5;margin:14px 0 0}
-#avs .at{display:block;font-size:26px;line-height:1.2;font-weight:800;margin-bottom:8px}
+#avs .at{display:block;font-size:22px;line-height:1.2;font-weight:800;margin-bottom:6px}
 @keyframes ttin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){#ttl .tw{animation:none}}
 #scni .go[style*="12a150"]{background:var(--btn)!important;color:var(--btnt)!important}
@@ -668,8 +668,8 @@ body{background:transparent!important;transition:none!important}
    <div style="display:flex;gap:8px"><button class="go" id="rety" style="background:#e60000">Sim, me aposentar</button><button class="go" id="retn" style="background:var(--card);border:1px solid var(--line)">Cancelar</button></div>
   </div>
  </div>
-<h2>Atalhos de teste</h2>
- <div class="card">
+<h2 hidden>Atalhos de teste</h2>
+ <div class="card" hidden>
   <div style="color:var(--mute);font-size:14px">Temporário, só para ver as cores. Pula etapas da carreira.</div>
   <div id="tstb" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
    <button class="go" id="devcash" style="margin:0;grid-column:1/-1;background:#12a150">Ganhar R$ 10.000.000</button>
@@ -2236,7 +2236,7 @@ var SPP=[
 function spFmt(n){return 'R$ '+n.toLocaleString('pt-BR')}
 function spOwn(id){return !!(S.items&&S.items[id])}
 function spPerkTxt(c){if(!c)return '';
- if(c==='baly')return '1 Baly grátis para resgatar na loja (+30 de energia)';
+ if(c==='baly')return '1 Baly grátis para resgatar na loja (+50 de energia)';
  if(c==='redbull')return '1 Red Bull grátis para resgatar na loja (+100 de energia)';
  if(c==='viagem')return '1 viagem internacional grátis (+10 de Mental)';
  if(c==='praia')return '1 fim de semana na praia grátis (+3 de Mental e +2 de Fama)';
@@ -2732,7 +2732,7 @@ $('cartel').onclick=function(e){if(e.target.closest('#cartmore')){cartAll=!cartA
 
 function bumpA(k,n){S.a[k]=Math.min(99,S.a[k]+(n||1))}
 var LOJA=[
-{id:'baly',n:'Baly',d:'+30 de energia. Só 1 vez por mês.',p:50,monthly:1,mul:2,f:function(){S.en=Math.min(100,S.en+30)}},
+{id:'baly',n:'Baly',d:'+50 de energia. Só 1 vez por mês.',p:50,monthly:1,mul:2,f:function(){S.en=Math.min(100,S.en+50)}},
 {id:'redbull',n:'Red Bull',d:'+100 de energia. Só 1 vez por mês.',p:200,monthly:1,mul:2,f:function(){S.en=Math.min(100,S.en+100)}},
 {id:'harmo',n:'Harmonização Facial',d:'Recupera 10 de queixo.',p:2000000,mul:3,full:function(){return S.chin>=100},f:function(){S.chin=Math.min(100,S.chin+10);return '+10 de queixo'}},
 {id:'aS',n:'Aula particular de Socos',d:'Por 1 mês: 50% de chance de dobrar o ganho em cada treino de Socos.',p:2000,cls:'Socos',f:function(){clsBuy('Socos')}},

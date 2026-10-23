@@ -602,21 +602,18 @@ body{background:transparent!important;transition:none!important}
  <div class="card" id="cond"></div>
  <div class="phoje"><div>HOJE: <span id="date"></span></div><div id="fline">Luta em <b id="dsub"></b></div></div>
  </section>
- <button class="go" id="rest" style="background:#0022dd">Próxima semana</button>
- <button class="go" id="month" style="background:#fff;color:#111">Passar 30 dias ou até o dia da luta</button>
 
  <section class="poster" id="poster" aria-label="Próxima luta" style="margin-top:22px">
   <div class="in"><div><div class="n" id="pn"></div><small id="pk"></small></div><div><div class="n" id="opn">Caio Matos</div><small id="opk">"Furacão"</small><small id="opo" style="font-weight:700"></small></div><div class="vs">VS</div></div>
   <div class="foot"><span id="pev">Evento Amador de MMA, 3 rounds</span><span><b id="days"></b> dias para a luta</span></div>
  </section>
- <section id="nofight" hidden aria-label="Sem luta marcada" style="margin-top:22px;background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:34px 14px;text-align:center"><b style="font-family:'Source Serif 4',Georgia,serif;font-size:20px;letter-spacing:.04em">SEM LUTA MARCADA</b><div id="nfsub" style="color:var(--mute);font-size:14px;margin-top:8px">Carreira &gt; Ofertas de luta</div></section>
- <div id="rsvcard" class="card" hidden style="margin-top:12px"></div>
- <button class="go" id="fight" style="background:#e60000">Iniciar luta</button>
- <div id="fhint" style="color:var(--mute);font-size:14px;margin-top:6px"></div>
- <div id="lastres" class="card" hidden style="margin-top:12px"></div>
+ <section id="nofight" hidden aria-label="Sem luta marcada" style="margin-top:22px;background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:34px 14px;text-align:center"><b style="font-family:'Source Serif 4',Georgia,serif;font-size:20px;letter-spacing:.04em">SEM LUTA MARCADA</b><div id="nfsub" style="color:var(--mute);font-size:14px;margin-top:8px">Lutas &gt; Ofertas de luta</div></section>
+ <button class="go" id="rest" style="background:#0022dd">Próxima semana</button>
+ <button class="go" id="month" style="background:#fff;color:#111">Passar 30 dias ou até o dia da luta</button>
 
  
 
+ <div id="enline" style="margin-top:22px;font-size:17px;display:inline-block;background:var(--card);border:2px solid var(--btn);border-radius:8px;padding:2px 10px">Energia: <b id="enval"></b></div>
  <h2>Treino</h2>
  <div class="card" id="attrs"></div>
  <div style="color:var(--mute);font-size:14px;margin-top:6px">Cada treino gasta 25 de energia e passa um dia.</div>
@@ -647,9 +644,11 @@ body{background:transparent!important;transition:none!important}
 </main>
 <main id="v-carreira" hidden>
  <h2 style="margin-top:6px;font-size:24px">Carreira</h2>
+ <div id="fofr">
  <h2 style="margin-top:14px">Ofertas de luta</h2>
  <div id="ofmicro" hidden style="color:var(--mute);font-size:13px;margin:-2px 0 8px">O Renato Moicano conseguiu essas opções de luta para você.</div>
  <div id="offers"></div>
+ </div>
  <h2 id="sph">Patrocinadores</h2>
  <div id="spons"></div>
  <h2>Categoria de peso</h2>
@@ -668,8 +667,8 @@ body{background:transparent!important;transition:none!important}
    <div style="display:flex;gap:8px"><button class="go" id="rety" style="background:#e60000">Sim, me aposentar</button><button class="go" id="retn" style="background:var(--card);border:1px solid var(--line)">Cancelar</button></div>
   </div>
  </div>
-<h2 hidden>Atalhos de teste</h2>
- <div class="card" hidden>
+<h2>Atalhos de teste</h2>
+ <div class="card">
   <div style="color:var(--mute);font-size:14px">Temporário, só para ver as cores. Pula etapas da carreira.</div>
   <div id="tstb" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
    <button class="go" id="devcash" style="margin:0;grid-column:1/-1;background:#12a150">Ganhar R$ 10.000.000</button>
@@ -739,6 +738,23 @@ nav button.on::before{border-radius:0 0 3px 3px}
 #ttgo:focus-visible,#avgo:focus-visible{outline:none}
 </style>
 <main id="v-loja" hidden><div id="lojac"></div></main>
+<main id="v-lutas" hidden>
+ <h2 style="margin-top:6px;font-size:24px">Lutas</h2>
+ <div id="fa-lu"></div>
+ <button class="go" id="fight" style="background:#e60000">Iniciar luta</button>
+ <div id="fhint" style="color:var(--mute);font-size:14px;margin-top:6px"></div>
+ <div id="fa-rsv">
+ <div id="rsvcard" class="card" hidden style="margin-top:12px"></div>
+ </div>
+ <h2>Detalhes da luta</h2>
+ <div class="card" id="ldet"></div>
+ <div id="fa-of"></div>
+ <div id="lastres" class="card" hidden style="margin-top:12px"></div>
+ <div class="card" id="lnores" hidden style="color:var(--mute);margin-top:22px">Último resultado: você ainda não lutou.</div>
+ <h2>Últimas lutas</h2>
+ <div class="card" id="lhist" style="padding-top:4px;padding-bottom:4px"></div>
+</main>
+
 <div id="gpm" class="pop" style="display:none;position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.5);align-items:center;justify-content:center;padding:20px">
  <div class="card" style="max-width:420px;width:100%;border:2px solid var(--btn);background:var(--card)">
   <div style="font-weight:800;letter-spacing:.08em;color:var(--btn);font-size:12px">🏆 INSCRIÇÕES ABERTAS</div>
@@ -858,6 +874,7 @@ nav button.on::before{border-radius:0 0 3px 3px}
  <button data-tab="redes"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span>Social</button>
  <button data-tab="rank"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21V11H4v10z"/><path d="M14 21V4h-4v17z"/><path d="M20 21v-7h-4v7z"/></svg></span>Ranking</button>
  <button data-tab="loja"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1 12H5L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>Loja</button>
+ <button data-tab="lutas"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3h7L21 8.5v7L15.5 21h-7L3 15.5v-7z"/><path d="M10.25 7.5h3.5L16.5 10.25v3.5L13.75 16.5h-3.5L7.5 13.75v-3.5z"/></svg></span>Lutas</button>
 </nav>
 <script>
 var S={day:1,fs:false,left:14,en:100,hp:100,mo:50,fame:0,cash:1000,chin:100,bd:null,a:{"Socos":10,"Chutes":10,"Defesa":10,"Wrestling":10,"Jiu-jitsu":10,"Cardio":10},log:[[1,"Sua carreira no MMA amador começou. Nenhuma luta marcada ainda."]]};
@@ -918,7 +935,7 @@ function bmfTick(){try{var B=bmf();if(!bmfRk()&&!S.fs&&S.of&&S.of.some(function(
 function applyTheme(){var k=thKey(),h=document.documentElement,hd=!!(window.__thH&&k===window.__thH),bm=hd?!!window.__thB:bmfOn();if(k)h.setAttribute('data-th',k);else h.removeAttribute('data-th');if(k==='ufc'&&bm)h.setAttribute('data-bmf','1');else h.removeAttribute('data-bmf');var us=hd?!!window.__thU:(k==='ufc'&&S.fs&&S.opp&&S.opp.wh&&!bmfOn());if(us)h.setAttribute('data-us','1');else h.removeAttribute('data-us');var m=document.querySelector('meta[name=theme-color]');if(!m){m=document.createElement('meta');m.setAttribute('name','theme-color');document.head.appendChild(m)}m.setAttribute('content',k==='ufc'&&bm?'#cdd6e2':k==='cc'||k==='ufc'?'#ffffff':'#000000')}
 function render(){try{applyTheme()}catch(e){}try{igBadge()}catch(e){}if(S.mo!=null&&S.mo<moMin())S.mo=moMin();if(S.fame!=null&&S.fame<fameMin())S.fame=fameMin();Object.keys(S.a).forEach(function(k){if(S.a[k]>99)S.a[k]=99});
  applyNames();
- $("nfsub").textContent=S.rsv&&S.rsv.kind==='cc'?"Foco no Contender Crimes":"Carreira > Ofertas de luta";
+ $("nfsub").textContent=S.rsv&&S.rsv.kind==='cc'?"Foco no Contender Crimes":"Lutas > Ofertas de luta";
  var L=S.last;$("lastres").hidden=!L;if(L)$("lastres").innerHTML='<div style="color:var(--mute);font-size:13px">Último resultado</div><b style="color:'+(L.r==='w'?'#22c55e':L.r==='l'?'#ff3b30':'var(--mute)')+'">'+(L.r==='w'?'VITÓRIA':L.r==='l'?'DERROTA':'EMPATE')+'</b>'+(L.o?'<div>'+(L.r==='w'?'Vitória sobre ':L.r==='l'?'Derrota para ':'Empate com ')+esc(L.o)+'</div>':'')+lrDelta(L);
  $("money").textContent="R$ "+S.cash.toLocaleString("pt-BR");
  var F=S.fs===true;$("days").textContent=S.left;$("poster").hidden=!F;$("nofight").hidden=F;$("fline").hidden=!F;$("fight").hidden=!F;$("date").textContent=dt(S.day,1);$("age").textContent=age(S.day)+" anos";var o=ovr();$("ovr").textContent=o;$("ovr").style.color=ovrCol(o);$("dsub").textContent=dt(S.day+S.left,1);if(S.fs&&S.opp&&S.left<1&&S.st==='ufc'&&(socTitleFight(S.opp)||S.opp.r===0)&&natOf(S.opp.n)==='RU')igPost('encarada');$("fight").disabled=S.left>0;$("fhint").textContent=F&&S.left>0?"Disponível em "+dt(S.day+S.left,1)+".":"";
@@ -941,7 +958,7 @@ function bdRw(){return !!(S&&!S.ret&&!S.mmaRet&&!S.exUfc&&(S.rw||S.st!=='am'||S.
 
 function ageRate(y){return y>=15?7:y>=14?4:y>=12?2:y>=11?1:0}
 function ageDecay(){var y=(S.day-1)/365.25,dd=new Date(2026,10,S.day),mi=dd.getFullYear()*12+dd.getMonth();if(S.dm==null){S.dm=mi;return}if(mi<=S.dm)return;S.dm=mi;var r=ageRate(y);if(!r||!S.a)return;if(S.bx||(S.fs&&S.opp&&S.opp.kind==='zb'))return;if((S.inj&&S.day<S.inj.end)||(S.rst&&S.day<S.rst)){S.log.unshift([S.day,'Desgaste da idade suspenso neste mês: você está '+((S.inj&&S.day<S.inj.end)?'lesionado':'em restrição médica')+' e não perde atributos.']);return}var ks=Object.keys(S.a);ks.forEach(function(k){S.a[k]=Math.max(1,S.a[k]-r)});var yr=Math.floor(y);S.log.unshift([S.day,'Desgaste da idade ('+yr+' anos de carreira): -'+r+' em todos os atributos neste mês. É preciso treinar para compensar.']);if(S.dr!==r){S.dr=r;try{toast('Após '+yr+' anos de carreira, seus atributos caem '+r+' por mês')}catch(e){}}}
-function pass(msg){var a0=age(S.day);S.day++;sfTick();spTick();if(age(S.day)>a0){S.log.unshift([S.day,"Aniversário: você completou "+age(S.day)+" anos."]);try{bdTx(age(S.day))}catch(e9){}if(age(S.day)===35)S.log.unshift([S.day,"Aos 35 anos, seu queixo passa a desgastar mais rápido."])}S.chin=Math.max(0,S.chin-(age(S.day)>=35?0.017:0.0065));if(S.fs)S.left=Math.max(0,S.left-1);socTick();activateRsv();proTick();checkInvite();dwMsg();sextTick();mstTick();mcTick();mc2Tick();lfaBeltTick();lfaDayTick();m10Tick();bmfTick();dwlTick();sextuTick();checkMestre();ufcTick();tkmTick();cbTick();qdTick();sx3Tick();sx4Tick();pcTick();pcnTick();dcdTick();sx5Tick();colbTick();colmTick();if(S.inj&&S.day>=S.inj.end){S.log.unshift([S.day,'Você se recuperou da lesão ('+S.inj.n.toLowerCase()+') e está liberado para treinar e lutar.']);S.inj=null}try{ageDecay()}catch(e8){}if(msg)S.log.unshift([S.day,msg]);
+function pass(msg){var a0=age(S.day);S.day++;sfTick();spTick();if(age(S.day)>a0){S.log.unshift([S.day,"Aniversário: você completou "+age(S.day)+" anos."]);try{bdTx(age(S.day))}catch(e9){}if(0)S.log.unshift([S.day,"Aos 35 anos, seu queixo passa a desgastar mais rápido."])}S.chin=Math.max(0,S.chin-0.0065);if(S.fs)S.left=Math.max(0,S.left-1);socTick();activateRsv();proTick();checkInvite();dwMsg();sextTick();mstTick();mcTick();mc2Tick();lfaBeltTick();lfaDayTick();m10Tick();bmfTick();dwlTick();sextuTick();checkMestre();ufcTick();tkmTick();cbTick();qdTick();sx3Tick();sx4Tick();pcTick();pcnTick();dcdTick();sx5Tick();colbTick();colmTick();if(S.inj&&S.day>=S.inj.end){S.log.unshift([S.day,'Você se recuperou da lesão ('+S.inj.n.toLowerCase()+') e está liberado para treinar e lutar.']);S.inj=null}try{ageDecay()}catch(e8){}if(msg)S.log.unshift([S.day,msg]);
  if(S.fs&&S.left===0)S.log.unshift([S.day,"É o dia da luta. Toque em Iniciar luta."]);render()}
 $("attrs").addEventListener("click",function(e){var k=e.target.dataset&&e.target.dataset.k;if(!k||S.en<25||(S.rst&&S.day<S.rst))return;
  if(S.bx&&k in S.bx){boxTrain(k);return}
@@ -999,12 +1016,12 @@ function icForce(){var t=S.injT;if(!t||S.day<t.day)return;S.injT=null;var di=t.d
  if(S.ic[di]||S.icq[di]||(S.ufc&&di===S.wc&&(S.rk===0||S.pic===di))){S.log.unshift([S.day,'Teste: não foi possível lesionar o campeão agora.']);return}
  var L=lg(di),ch=nn(L[0].n);S.ev.forEach(function(e){if(e.res)return;e.f.forEach(function(f){if(f.pl||f.w!=null)return;if(f.dv===di&&(f.ti||nn(f.a)===ch||nn(f.b)===ch)){f.w='—';f.m='cancelada'}})});
  var pl=S.ufc&&di===S.wc&&S.rk>=1&&S.rk<=3;S.icq[di]={stage:pl?'int-pl':'int-new',ch:ch};S.icb[ch]=1;
- S.log.unshift([S.day,'UFC: '+ch+', campeão do '+DV[di][0]+', sofreu uma lesão e ficará meses afastado. '+(pl?'Você recebeu a chance de lutar pelo cinturão interino. Veja em Carreira > Ofertas de luta.':'O UFC vai marcar uma luta pelo cinturão interino.')])}
+ S.log.unshift([S.day,'UFC: '+ch+', campeão do '+DV[di][0]+', sofreu uma lesão e ficará meses afastado. '+(pl?'Você recebeu a chance de lutar pelo cinturão interino. Veja em Lutas > Ofertas de luta.':'O UFC vai marcar uma luta pelo cinturão interino.')])}
 function ufcInterim(){if(!S.icq)S.icq={};if(!S.ic)S.ic={};if(!S.icb)S.icb={};if(Math.random()>.004)return;var c=[],di;
  for(di=0;di<8;di++){if(S.ic[di]||S.icq[di])continue;if(S.ufc&&di===S.wc&&(S.rk===0||S.pic===di))continue;var L=lg(di);if(L.length<4||L[0].vac)continue;var ch=nn(L[0].n);
   if(S.ev.some(function(e){return !e.res&&e.f.some(function(f){return f.dv===di&&(f.ti||nn(f.a)===ch||nn(f.b)===ch)})}))continue;c.push(di)}
  if(!c.length)return;di=c[rn(0,c.length-1)];var ch2=nn(lg(di)[0].n);var pl=S.ufc&&di===S.wc&&S.rk>=1&&S.rk<=3;S.icq[di]={stage:pl?'int-pl':'int-new',ch:ch2};S.icb[ch2]=1;
- S.log.unshift([S.day,'UFC: '+ch2+', campeão do '+DV[di][0]+', sofreu uma lesão e ficará meses afastado. '+(pl?'Você recebeu a chance de lutar pelo cinturão interino. Veja em Carreira > Ofertas de luta.':'O UFC vai marcar uma luta pelo cinturão interino.')]);}
+ S.log.unshift([S.day,'UFC: '+ch2+', campeão do '+DV[di][0]+', sofreu uma lesão e ficará meses afastado. '+(pl?'Você recebeu a chance de lutar pelo cinturão interino. Veja em Lutas > Ofertas de luta.':'O UFC vai marcar uma luta pelo cinturão interino.')]);}
 function icSched(){if(!S.icq)return;Object.keys(S.icq).forEach(function(k){var q=S.icq[k],di=+k,L=lg(di);if(S.ufc&&di===S.wc&&S.rk===0){if(S.ic&&S.ic[di]){S.ev.forEach(function(e){if(e.res)return;e.f.forEach(function(f){if(f.dv===di&&f.uf&&f.w==null&&!f.pl){f.w='—';f.m='cancelada';if(S.bk){delete S.bk[f.a];delete S.bk[f.b]}}})});return}if(q.stage!=='int-set'&&q.stage!=='uni-set'){icCancel(di);return}}if(q.stage==='int-pl'){if(S.ufc&&di===S.wc&&S.rk>=1&&S.rk<=3)return;q.stage='int-new'}if(q.stage==='pl-uni')return;
  if(q.stage==='int-set'||q.stage==='uni-set')return;
  var af=q.after||0,ok=S.ev.filter(function(x){return !x.res&&x.d-S.day>=28&&x.d>=af&&!x.f.some(function(f){return f.dv===di&&f.ti})&&!x.f.some(function(f){return f.pl&&f.dv===di})}),
@@ -1181,7 +1198,7 @@ function renderRank(){renderEvents();
  var ctr=function(){var c=$('dvs'),a=c.querySelector('.dv.on');if(!a||!c.clientWidth)return;c.scrollLeft=a.getBoundingClientRect().left-c.getBoundingClientRect().left+c.scrollLeft-(c.clientWidth-a.offsetWidth)/2};ctr();requestAnimationFrame(ctr)}
 $('rsec').onclick=function(e){var b=e.target.closest('button');if(!b)return;rkSec=b.dataset.s;renderRank()};
 $('dvs').onclick=function(e){var i=e.target.dataset&&e.target.dataset.i;if(i==null)return;cur=+i;renderRank()};
-function tab(t){['inicio','rank','carreira','redes','loja'].forEach(function(x){$('v-'+x).hidden=x!==t});if(t==='redes')renderRedes();if(t==='loja'){LTAB='eq';LSUB='luva';$('lojac').innerHTML='';renderLoja()}if(t==='carreira'){renderCar();$('ret1').hidden=false;$('retc').hidden=true}document.querySelectorAll('[data-tab]').forEach(function(b){b.className=b.dataset.tab===t?'on':''});if(t==='rank'){cur=S.wc==null?2:S.wc;rkSec='ufc';renderRank()}if(t==='inicio')fitNames();window.scrollTo(0,0);document.body.scrollTop=0}
+function tab(t){['inicio','rank','carreira','redes','loja','lutas'].forEach(function(x){$('v-'+x).hidden=x!==t});if(t==='redes')renderRedes();if(t==='loja'){LTAB='eq';LSUB='luva';$('lojac').innerHTML='';renderLoja()}if(t==='carreira'){renderCar();$('ret1').hidden=false;$('retc').hidden=true}document.querySelectorAll('[data-tab]').forEach(function(b){b.className=b.dataset.tab===t?'on':''});if(t==='rank'){cur=S.wc==null?2:S.wc;rkSec='ufc';renderRank()}if(t==='inicio')fitNames();window.scrollTo(0,0);document.body.scrollTop=0}
 document.querySelectorAll('[data-tab]').forEach(function(b){b.onclick=function(){tab(b.dataset.tab)}});
 function chk(){var d=+$('cd').value,m=+$('cm').value,y=+$('cy').value,ok=d>=1&&m>=1&&y>=1900&&y<=2026;
  if(ok){var t=new Date(y,m-1,d);ok=t.getDate()===d&&t.getMonth()===m-1}
@@ -1278,14 +1295,14 @@ function resolveFight(F){if(!S.fs||S.left>0)return;var c0=S.cash,_m0=S.mo==null?
   if(kind==='title'){S.ls=0;if(res==='w'){S.lc=true;note='Você é o novo campeão do '+orgName()+'! Sua próxima luta será a defesa do cinturão.';S.log.unshift([S.day,'Você conquistou o cinturão do '+orgName()+'.']);if(S.lko){S.lko=false;S.dwo=true;S.dwl=false;note='Você é campeão do '+orgName()+' de novo! Você foi selecionado pro Dana White\'s Contender Series.'}}else note='Você não levou o cinturão. Vença mais lutas para tentar de novo.'}
   else if(kind==='def'){S.dwl=false;var lfd1=!S.ldfd;S.ldfd=1;
    if(res==='l'){S.lc=false;S.ls=0;S.lcn={n:op.n,k:op.k};
-    if(fin){if(lfd1){var lfs={id:'lfadef'};if(S.scene){S.sq=S.sq||[];S.sq.push(lfs)}else S.scene=lfs}S.dwo=false;S.lko=true;S.rm={n:op.n,k:op.k,o:op.o,c:op.c,w:op.w,ev:op.ev,t:'Revanche pelo cinturão do '+orgName(),rd:5,kind:'rem'};note='Você perdeu o cinturão do '+orgName()+' por '+(ko?'nocaute':'finalização')+' e não pode ir ao Contender Series agora. A revanche imediata já está disponível em Carreira > Ofertas de luta.'}
+    if(fin){if(lfd1){var lfs={id:'lfadef'};if(S.scene){S.sq=S.sq||[];S.sq.push(lfs)}else S.scene=lfs}S.dwo=false;S.lko=true;S.rm={n:op.n,k:op.k,o:op.o,c:op.c,w:op.w,ev:op.ev,t:'Revanche pelo cinturão do '+orgName(),rd:5,kind:'rem'};note='Você perdeu o cinturão do '+orgName()+' por '+(ko?'nocaute':'finalização')+' e não pode ir ao Contender Series agora. A revanche imediata já está disponível em Lutas > Ofertas de luta.'}
     else{S.dwo=true;note='Você perdeu o cinturão do '+orgName()+' por decisão, mas ainda pode ir ao Contender Series. Você foi selecionado pro Dana White\'s Contender Series.'}}
    else{S.dwo=true;if(res==='w')S.ls++;note="Você foi selecionado pro Dana White's Contender Series."}}
   else if(kind==='rem'){S.rm=null;S.ls=0;if(res==='w'){S.lc=true;S.lko=false;S.dwo=true;S.dwl=false;S.lcn=null;S.log.unshift([S.day,'Você recuperou o cinturão do '+orgName()+'.']);note='Você recuperou o cinturão do '+orgName()+'! Você foi selecionado pro Dana White\'s Contender Series.'}else note='Você perdeu a revanche. Vença mais lutas no '+orgName()+' para disputar o cinturão de novo.'}
   else if(kind==='dw'){if(res==='w'){if(!S.sxud&&!S.sxu)S.sxu=S.day+1;S.st='ufc';S.ufc=true;S.rk=16;S.chg=null;S.dww=1;igPost('dw1');aud+=(aud?' ':'')+ufcSign();S.log.unshift([S.day,'Você assinou contrato com o UFC!']);note='Contrato com o UFC! Você estreia sem ranking no '+DV[S.wc][0]+'.'}else{S.dwl=true;note='Você perdeu no Contender Series e segue no '+orgName()+' até receber outra oferta.'}}
-  else{if(res==='w')S.ls++;else if(res==='l')S.ls=0;if(S.ls>=2&&!S.lc&&res==='w')note='Você ganhou uma chance de disputar o cinturão do '+orgName()+'. Veja em Carreira > Ofertas de luta.'}}
+  else{if(res==='w')S.ls++;else if(res==='l')S.ls=0;if(S.ls>=2&&!S.lc&&res==='w')note='Você ganhou uma chance de disputar o cinturão do '+orgName()+'. Veja em Lutas > Ofertas de luta.'}}
  else if(S.st==='mmp'){
-  if(kind==='mpt'){S.mps=0;if(res==='w'){S.lfao=true;S.scene={id:'mpvest'};S.log.unshift([S.day,'Você conquistou o cinturão do Money Moicano MMA no '+DV[S.wc][0]+'.']);note='Você é o campeão do Money Moicano MMA no '+DV[S.wc][0]+'! O LFA enviou uma proposta de contrato. Veja em Carreira > Ofertas de luta.'}else note='Você não levou o cinturão do Money Moicano MMA. Vença 2 seguidas para tentar de novo. '+mpNext('mp')}
+  if(kind==='mpt'){S.mps=0;if(res==='w'){S.lfao=true;S.scene={id:'mpvest'};S.log.unshift([S.day,'Você conquistou o cinturão do Money Moicano MMA no '+DV[S.wc][0]+'.']);note='Você é o campeão do Money Moicano MMA no '+DV[S.wc][0]+'! O LFA enviou uma proposta de contrato. Veja em Lutas > Ofertas de luta.'}else note='Você não levou o cinturão do Money Moicano MMA. Vença 2 seguidas para tentar de novo. '+mpNext('mp')}
   else{var mpF1=!S.mpd;S.mpd=true;if(mpF1&&!S.mpf&&kind==='mp'&&(res==='w'||res==='l')){S.mpf=1;if(!S.scene)S.scene={id:res==='w'?'mpfw':'mpfl'}}if(res==='w'){S.mps=(S.mps||0)+1;note=S.mps>=2?'Duas vitórias seguidas! Você ganhou a chance de disputar o cinturão do Money Moicano MMA. ':'Vitória profissional. Vença mais uma seguida para disputar o cinturão. ';note+=mpNext(S.mps>=2?'mpt':'mp');if(S.mps>=2&&!S.scene)S.scene={id:'mptt',d:S.rsv&&S.rsv.day}}else{if(res==='l')S.mps=0;note=mpNext('mp')}}}
  else if(S.st==='ufc'){var orr=op.r;
   if(op.ic){if(res==='w'){S.pic=S.wc;S.rk=1;if(!S.icq)S.icq={};S.icq[S.wc]={stage:'pl-uni',ch:nnm(lg(S.wc)[0].n)};S.log.unshift([S.day,'Você conquistou o cinturão interino do '+DV[S.wc][0]+'.']);note='Você é o campeão interino (IC) do UFC no '+DV[S.wc][0]+'! Sua próxima luta será a unificação do cinturão.'}
@@ -1409,7 +1426,7 @@ function rsvInfo(){var c=$('rsvcard'),on=S.rsv&&!S.fs&&rsvText(),blk=false,fs=$(
  if(on)c.innerHTML='<div style="color:var(--mute);font-size:13px">Luta reservada</div><div>'+rsvText()+'</div>';
  if(fs){
   if(blk&&c.parentNode!==fs)fs.appendChild(c);
-  else if(!blk){var ah=$('attrs'),hn=ah&&ah.nextElementSibling;if(hn&&hn.parentNode&&c.previousElementSibling!==hn)hn.parentNode.insertBefore(c,hn.nextSibling)}
+  else if(!blk){var ra=$('fa-rsv');if(ra&&c.parentNode!==ra)ra.appendChild(c)}
   fs.classList.toggle('rsvon',!!blk);
  }
  if(blk&&nf)nf.hidden=true;
@@ -2437,7 +2454,7 @@ function goTest(k){if(FT||S.scene)return;S.fs=false;S.opp=null;S.left=0;S.rsv=nu
  S.log.unshift([S.day,'Atalho de teste: '+k+'.']);save();toast('Atalho aplicado');render();renderCar()}
 $('tstb').onclick=function(e){var b=e.target.closest('button');if(!b)return;if(b.dataset.t==='igmoto'){if(S.igd&&S.igd.moto){toast('A foto da moto já foi postada');return}igPost('moto');save();toast('Foto da moto postada: veja em Redes > Instagram');render();return}if(b.dataset.t==='igcb'){if(S.igd&&S.igd.casabranca){toast('A foto da Casa Branca já foi postada');return}igPost('casabranca');save();toast('Foto da Casa Branca postada: veja em Redes > Instagram');render();return}if(b.dataset.t==='igult'){if(S.igd&&S.igd.ultima){toast('A foto da última luta já foi postada');return}igPost('ultima');save();toast('Foto da última luta postada: veja em Redes > Instagram');render();return}if(b.dataset.t==='igall'){var ord=['cc1','lfa1','dwcamp','dw1','ufc1','encarada','ufcch','ufcch2','ufcch3','moto','ducati','milhoes','ufcbelts','casabranca','ultima'];S.igd={};S.igp=[];ord.forEach(function(k){S.igd[k]=1;S.igp.unshift([S.day,k])});save();toast('Fotos adicionadas: veja em Redes > Instagram');render();return}if(b.dataset.t==='inj'){if(!S.ufc){toast('Disponível só no UFC');return}if(S.rk===0||S.pic===S.wc){toast('Você é campeão ou IC: não dá para testar aqui');return}if((S.ic&&S.ic[S.wc])||(S.icq&&S.icq[S.wc])){toast('Já existe um interino na sua categoria');return}S.injT={day:S.day+2,di:S.wc};S.log.unshift([S.day,'Atalho de teste: o campeão do '+DV[S.wc][0]+' será lesionado em 2 dias.']);save();toast('O campeão se lesiona em 2 dias');render();return}
  if(b.dataset.t==='ufcrst'){if(!S.ufc){toast('Disponível só no UFC');return}lg(0);var mp=S.o10b;if(!mp){mp={};var A=[[95,94,94,92,91,91,89,88,88,86,85,85,83,82,81,80],[94,94,93,91,90,88,88,87,85,85,84,82,82,81,80,80],[95,93,93,92,90,89,89,87,86,84,84,83,81,81,80,80],[93,92,92,90,89,89,87,86,84,84,83,82,82,81,80,80]],B=[[0,1,1,3,4,4,6,7,8,9],[0,0,2,3,3,5,6,6,8,9],[0,2,2,3,5,5,7,8,8,9],[0,1,3,3,4,6,6,7,9,9]];DV.forEach(function(x,d){RK[d].split('|').forEach(function(n,k){mp[nn(n)]=Math.min(94,k<16?A[d%4][k]:79-B[d%4][k-16])})});mp['Marcos Degli']=74;mp['Rafael dos Anjos']=77;mp['Shamil Gaziev']=80;mp['Gable Steveson']=76;mp['Yair Rodriguez']=87;mp['Sean Brady']=88;mp['Curtis Blaydes']=88}var rn=0;S.lg.forEach(function(L){L.forEach(function(f){if(f.vac)return;var v=f.cap!=null?f.cap:mp[nn(f.n)];if(v!=null){f.o=v;rn++}})});if(S.ic)Object.keys(S.ic).forEach(function(k){var f=S.ic[k];if(f&&mp[nn(f.n)]!=null)f.o=mp[nn(f.n)]});S.o10=0;delete S.o10b;if(!S.fs){S.of=genOffers();S.ofm=mk()}S.log.unshift([S.day,'Atalho de teste: os OVR originais dos lutadores do UFC foram restaurados.']);save();toast('OVR originais restaurados ('+rn+' lutadores)');render();renderCar();return}
- if(b.dataset.t==='ufc10'){if(!S.ufc){toast('Disponível só no UFC');return}lg(0);if(!S.o10){S.o10b={};S.lg.forEach(function(L){L.forEach(function(f){if(!f.vac)S.o10b[nn(f.n)]=f.o})});if(S.ic)Object.keys(S.ic).forEach(function(k){if(S.ic[k])S.o10b[nn(S.ic[k].n)]=S.ic[k].o})}S.o10=1;S.lg.forEach(function(L){L.forEach(function(f){if(!f.vac)f.o=10})});if(S.ic)Object.keys(S.ic).forEach(function(k){if(S.ic[k])S.ic[k].o=10});if(!S.fs){S.of=genOffers();S.ofm=mk()}S.log.unshift([S.day,'Atalho de teste: todos os lutadores do UFC com 10 de OVR.']);save();toast('Lutadores do UFC com 10 de OVR');render();renderCar();return}if(b.dataset.t==='injtest'){S.injF=1;save();toast('No próximo treino em camp você se lesiona');return}if(b.dataset.t==='whtest'){if(!S.ufc){toast('Disponível só no UFC');return}if(S.fs){toast('Você já tem uma luta marcada');return}S.whd=0;if(S.rk===0)S.rk=1;if(!S.ch)S.ch=[];for(var wd=0;S.ch.length<2&&wd<8;wd++)if(S.ch.indexOf(wd)<0&&wd!==S.wc)S.ch.push(wd);S.chg={m:'tri'};S.of=genOffers();S.ofm=mk();S.log.unshift([S.day,'Atalho de teste: chance do triplo cinturão criada, com a luta na Casa Branca.']);save();toast('Veja em Carreira > Ofertas de luta');render();renderCar();return}if(b.dataset.t==='coltest'){if(!S.ufc){toast('Disponível só no UFC');return}if(S.fs){toast('Você já tem uma luta marcada');return}if(S.rk===0)S.rk=1;var cch=Array.isArray(S.ch)?S.ch.filter(function(x,i,a){return x!==S.wc&&a.indexOf(x)===i}):[];S.ch=cch.slice(0,3);for(var cd=0;S.ch.length<3&&cd<DV.length;cd++)if(cd!==S.wc&&S.ch.indexOf(cd)<0)S.ch.push(cd);if(S.ch.length<3){toast('Não foi possível preparar as categorias para o Coliseu');return}S.cold=0;S.chg={m:'tri'};S.of=genOffers();S.ofm=mk();S.log.unshift([S.day,'Atalho de teste: luta pelo UFC Coliseu criada.']);save();toast('Luta pelo UFC Coliseu criada: veja em Carreira > Ofertas de luta');render();renderCar();return}if(b.dataset.t==='bmftest'){var BB=bmf();if(!S.ufc){toast('Disponível só no UFC');return}if(S.fs){toast('Você já tem uma luta marcada');return}if(BB.p){toast('Você já é o BMF');return}if(!bmfRk()){toast('Só rankeados (#1 a #12) disputam o BMF');return}BB.q=1;S.of=genOffers();S.ofm=mk();S.log.unshift([S.day,'Atalho de teste: luta pelo cinturão BMF criada.']);save();toast('Veja em Carreira > Ofertas de luta');render();renderCar();return}if(b.dataset.t==='all99'){Object.keys(S.a).forEach(function(k){S.a[k]=99});S.log.unshift([S.day,'Atalho de teste: todos os atributos em 99.']);save();toast('Todos os atributos em 99');render();renderCar();return}goTest(b.dataset.t)};
+ if(b.dataset.t==='ufc10'){if(!S.ufc){toast('Disponível só no UFC');return}lg(0);if(!S.o10){S.o10b={};S.lg.forEach(function(L){L.forEach(function(f){if(!f.vac)S.o10b[nn(f.n)]=f.o})});if(S.ic)Object.keys(S.ic).forEach(function(k){if(S.ic[k])S.o10b[nn(S.ic[k].n)]=S.ic[k].o})}S.o10=1;S.lg.forEach(function(L){L.forEach(function(f){if(!f.vac)f.o=10})});if(S.ic)Object.keys(S.ic).forEach(function(k){if(S.ic[k])S.ic[k].o=10});if(!S.fs){S.of=genOffers();S.ofm=mk()}S.log.unshift([S.day,'Atalho de teste: todos os lutadores do UFC com 10 de OVR.']);save();toast('Lutadores do UFC com 10 de OVR');render();renderCar();return}if(b.dataset.t==='injtest'){S.injF=1;save();toast('No próximo treino em camp você se lesiona');return}if(b.dataset.t==='whtest'){if(!S.ufc){toast('Disponível só no UFC');return}if(S.fs){toast('Você já tem uma luta marcada');return}S.whd=0;if(S.rk===0)S.rk=1;if(!S.ch)S.ch=[];for(var wd=0;S.ch.length<2&&wd<8;wd++)if(S.ch.indexOf(wd)<0&&wd!==S.wc)S.ch.push(wd);S.chg={m:'tri'};S.of=genOffers();S.ofm=mk();S.log.unshift([S.day,'Atalho de teste: chance do triplo cinturão criada, com a luta na Casa Branca.']);save();toast('Veja em Lutas > Ofertas de luta');render();renderCar();return}if(b.dataset.t==='coltest'){if(!S.ufc){toast('Disponível só no UFC');return}if(S.fs){toast('Você já tem uma luta marcada');return}if(S.rk===0)S.rk=1;var cch=Array.isArray(S.ch)?S.ch.filter(function(x,i,a){return x!==S.wc&&a.indexOf(x)===i}):[];S.ch=cch.slice(0,3);for(var cd=0;S.ch.length<3&&cd<DV.length;cd++)if(cd!==S.wc&&S.ch.indexOf(cd)<0)S.ch.push(cd);if(S.ch.length<3){toast('Não foi possível preparar as categorias para o Coliseu');return}S.cold=0;S.chg={m:'tri'};S.of=genOffers();S.ofm=mk();S.log.unshift([S.day,'Atalho de teste: luta pelo UFC Coliseu criada.']);save();toast('Luta pelo UFC Coliseu criada: veja em Lutas > Ofertas de luta');render();renderCar();return}if(b.dataset.t==='bmftest'){var BB=bmf();if(!S.ufc){toast('Disponível só no UFC');return}if(S.fs){toast('Você já tem uma luta marcada');return}if(BB.p){toast('Você já é o BMF');return}if(!bmfRk()){toast('Só rankeados (#1 a #12) disputam o BMF');return}BB.q=1;S.of=genOffers();S.ofm=mk();S.log.unshift([S.day,'Atalho de teste: luta pelo cinturão BMF criada.']);save();toast('Veja em Lutas > Ofertas de luta');render();renderCar();return}if(b.dataset.t==='all99'){Object.keys(S.a).forEach(function(k){S.a[k]=99});S.log.unshift([S.day,'Atalho de teste: todos os atributos em 99.']);save();toast('Todos os atributos em 99');render();renderCar();return}goTest(b.dataset.t)};
 $('rety').onclick=function(){S.ret=S.day;igPost('ultima');save();showRet();render();renderCar()};
 $('retnew').onclick=function(){var b=this;if(b.disabled)return;b.disabled=true;b.textContent='Iniciando nova carreira…';window.__ns=1;try{localStorage.removeItem('mma1')}catch(e){}requestAnimationFrame(function(){setTimeout(function(){location.reload()},60)})};
 var PT=["Treino pesado hoje. Rumo à próxima luta.","Foco total na preparação. Quem me enfrentar vai sentir.","Mais um dia de trabalho no octógono.","Suor hoje, vitória no dia da luta.","Cada dia de treino me deixa mais perto do cinturão."];
@@ -3047,7 +3064,109 @@ kids.slice(0,i<0?kids.length:i).forEach(function(k){ro.observe(k)});
 try{new MutationObserver(function(){if(v.hidden)last=null}).observe(v,{attributes:true,attributeFilter:['hidden']})}catch(e){}
 fix();
 })();
-</script><script id="aposentadorias">
+</script>
+<style id="lutas-css">
+nav button[data-tab="lutas"]{color:var(--btn,#e60000)!important;font-weight:700}
+nav button{font-size:12.5px}
+@media(max-width:380px){nav button{font-size:11.5px}}
+#v-lutas #lastres{height:auto!important;overflow:visible;margin-top:22px}
+#v-lutas #lastres[hidden]{display:none}
+#v-lutas #fight[hidden]{display:none}
+#v-lutas #fhint{min-height:0}
+#v-lutas #fhint:empty{display:none}
+#v-lutas #fa-rsv:empty{display:none}
+#enline+h2{margin-top:8px}
+#v-lutas #fa-lu #fstack>#poster,#v-lutas #fa-lu #fstack>#nofight{margin-top:10px!important}
+#poster{height:180px!important;display:flex!important;flex-direction:column}
+#poster[hidden]{display:flex!important}
+#poster .in{flex:1;min-height:0;overflow:hidden;align-content:start}
+#poster .foot{flex:none;height:64px;overflow:hidden;align-content:center}
+#nofight{height:180px;display:flex;flex-direction:column;justify-content:center}
+#ldet .lrow{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-top:1px solid var(--line);font-size:15px}
+#ldet .lrow:first-child{border-top:0;padding-top:0}
+#ldet .lrow:last-child{padding-bottom:0}
+#ldet .lrow span{color:var(--mute);flex:none}
+#ldet .lrow b{text-align:right;min-width:0;overflow-wrap:anywhere}
+#lhist .lh{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+#lhist .lh:first-child{border-top:0}
+</style>
+<script id="lutas-tab">
+(function(){
+var v=$('v-inicio'),vl=$('v-lutas');if(!v||!vl)return;
+var fs=$('fstack'),pz=$('poster'),nf=$('nofight'),first=fs||pz;
+if(!first||!first.parentNode)return;
+var mk=document.createElement('div');mk.id='fa-in';mk.style.display='none';
+var blk=document.createElement('div');blk.id='fblk';
+first.parentNode.insertBefore(mk,first);first.parentNode.insertBefore(blk,first);
+if(fs)blk.appendChild(fs);else{blk.appendChild(pz);blk.appendChild(nf)}
+var bt=document.createElement('div');bt.id='fbtn';
+['rest','month'].forEach(function(i){var e=$(i);if(e)bt.appendChild(e)});
+var fg0=$('fight'),mo0=$('month');if(fg0&&mo0)bt.insertBefore(fg0,mo0);
+var hint=[].slice.call(v.querySelectorAll('div')).filter(function(d){return d.children.length===0&&/Cada treino gasta/.test(d.textContent)})[0];
+var mk2=document.createElement('div');mk2.id='fa-bt';mk2.style.display='none';
+if(hint&&hint.parentNode){hint.parentNode.insertBefore(mk2,hint.nextSibling);hint.parentNode.insertBefore(bt,mk2.nextSibling)}else{v.appendChild(mk2);v.appendChild(bt)}
+var fo=$('fofr'),mk3=document.createElement('div');mk3.id='fa-ofc';mk3.style.display='none';
+if(fo&&fo.parentNode)fo.parentNode.insertBefore(mk3,fo);
+function enC(v){var s=[[255,59,48],[255,190,0],[34,212,102]],p=Math.max(0,Math.min(100,v))/50,i=p>=1?1:0,t=p-i,a=s[i],b=s[i+1],c=a.map(function(x,k){return Math.round(x+(b[k]-x)*t)});return 'rgb('+c.join(',')+')'}
+function en(){var e=$('enval');if(e){e.textContent=Math.round(S.en);e.style.color=enC(S.en)}}
+function place(t){
+ if(t==='lutas'){var a=$('fa-lu');if(a){if(blk.parentNode!==a)a.appendChild(blk);if(bt.parentNode!==a)a.appendChild(bt)}if(fo&&a&&fo.parentNode!==a)a.appendChild(fo);var fg=$('fight'),mo=$('month');if(fg&&mo&&fg.parentNode!==bt)bt.insertBefore(fg,mo);cur='lutas';syncFo();syncBtns()}
+ else{
+  if(blk.parentNode!==v&&mk.parentNode)mk.parentNode.insertBefore(blk,mk.nextSibling);
+  if(bt.parentNode!==v&&mk2.parentNode)mk2.parentNode.insertBefore(bt,mk2.nextSibling);
+  if(fo&&mk3.parentNode&&fo.parentNode!==mk3.parentNode)mk3.parentNode.insertBefore(fo,mk3.nextSibling);
+  if(fo)fo.style.display='';
+  cur='';syncBtns();
+ }
+}
+var cur='';function syncBtns(){var fg=$('fight'),mo=$('month');if(!fg||!mo)return;var on=S.fs===true&&S.left<1;fg.style.display=on?'':'none';mo.style.display=on?'none':''}
+function syncFo(){if(!fo)return;fo.style.display=(!vl.hidden&&S.fs===true)?'none':''}
+var _ro=renderOffers;renderOffers=function(){var r=_ro.apply(this,arguments);try{syncFo()}catch(e){}return r};
+var _rd=render;render=function(){var r=_rd.apply(this,arguments);try{if(cur==='lutas')renderOffers();syncFo();syncBtns()}catch(e){}return r};
+function safe(f){try{return f()}catch(e){return ''}}
+function row(a,b){return '<div class="lrow"><span>'+a+'</span><b>'+b+'</b></div>'}
+function renderLutas(){
+ if(vl.hidden)return;
+ var F=S.fs===true,op=S.opp,el=$('ldet'),h='';
+ if(!F||!op){
+  h='<div style="color:var(--mute)">Nenhuma luta marcada. Escolha uma das ofertas de luta abaixo para marcar a próxima luta.</div>';
+ }else{
+  var dayF=S.day+S.left;
+  var ev=safe(function(){return evN(op,dayF,'Evento Amador de MMA')});
+  var lc=safe(function(){return op.loc||(op.ev==='UFC'?evLocAt(dayF):/Contender Series/.test(op.ev||'')?'META Apex':/^LFA/.test(op.ev||'')?lfl()[(op.n||'').length%5]:(/Rinha dos Inscritos|Money Moicano MMA|Contender Crimes/.test(op.ev||'')?'Cornerman':''))});
+  var sty=(op.o!=null&&S.st!=='am'&&op.kind!=='gp')?safe(function(){return STY[styleOf(op)].n}):'';
+  var bt=op.kind==='belt'||op.kind==='title'||/cintur/i.test(op.t||'');
+  var rk=op.r!=null?(op.r===0?'Campeão':op.r>15?'Fora do ranking':'#'+op.r):'Sem ranking';
+  var oc=op.o!=null?safe(function(){return ovrCol(op.o)}):'';
+  h+=row('Evento',esc(ev||'Evento'));
+  h+=row('Categoria',esc(safe(function(){return DV[op.dv!=null?op.dv:(S.wc==null?2:S.wc)][0]})));
+  h+=row('Adversário',esc(op.n)+(op.k?' <span style="color:var(--mute);font-weight:400">"'+esc(op.k)+'"</span>':'')+(op.o!=null?' <span style="color:'+(oc||'var(--ink)')+'">· OVR '+op.o+'</span>':''));
+  h+=row('Ranking',rk);
+  if(sty)h+=row('Estilo do adversário',esc(sty));
+  h+=row('Rounds',op.rd||3);
+  if(lc)h+=row('Local',esc(lc));
+  h+=row('Data',esc(dt(dayF,1)));
+ }
+ el.innerHTML=h;
+ $('lnores').hidden=!!S.last;
+ var cl={w:'#22c55e',l:'#ff3b30',d:'#a09e95'},lt={w:'V',l:'D',d:'E'},hs=(S.hist||[]).slice(0,fullH?1e4:5);
+ $('lhist').innerHTML=hs.length?hs.map(function(f){return '<div class="lh"><b style="flex:none;width:22px;color:'+(cl[f.r]||'#a09e95')+'">'+(lt[f.r]||'E')+'</b><div style="min-width:0;flex:1;overflow-wrap:anywhere"><div>'+esc(f.n)+(f.k?' <span style="color:var(--mute)">"'+esc(f.k)+'"</span>':'')+'</div><div style="color:var(--mute);font-size:13px">'+esc(f.h)+'</div><div style="color:var(--mute);font-size:13px">'+esc(safe(function(){return lb(f)}))+', '+safe(function(){return dd(f.d)})+'</div></div></div>'}).join('')+(S.hist.length>5?'<div style="padding:8px 0 4px;border-top:1px solid var(--line)"><button class="go" id="lcart" type="button" style="margin:0;background:var(--btn,#e60000);color:var(--btnt,#fff);border:0">'+(fullH?'Ver menos':'Ver cartel completo')+'</button></div>':''):'<div style="padding:8px 0;color:var(--mute)">Nenhuma luta ainda.</div>';
+}
+var fullH=0;vl.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('#lcart')){fullH=!fullH;renderLutas();return}if(e.target.closest&&e.target.closest('#lgoc'))tab('carreira')});
+var _t=tab;
+tab=function(t){
+ try{place(t)}catch(e){}
+ var r=_t.apply(this,arguments);
+ try{if(t==='lutas'){renderLutas();fitNames();rsvReserve();lrReserve();try{ensureOffers();pend=-1;pw=-1;renderOffers()}catch(e){}}else if(t==='inicio'){fitNames();rsvReserve()}}catch(e){}
+ return r;
+};
+var _r=render;
+render=function(){var r=_r.apply(this,arguments);try{renderLutas()}catch(e){}try{en()}catch(e){}return r};
+try{en()}catch(e){}
+try{rsvInfo()}catch(e){}
+})();
+</script>
+<script id="aposentadorias">
 (function(){
 var LB=['Aposentar','Aposentar do UFC','Triple Champ.','Quádruplo Campeão'];
 var MS=['','Requer no mínimo 3 lutas no UFC','Requer ser no mínimo triplo campeão (Desbloqueia pós-game. luta extra no Boxe)','Requer ser quádruplo campeão (Desbloqueia pós-game. luta extra no Boxe)'];

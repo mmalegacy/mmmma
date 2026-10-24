@@ -3876,7 +3876,7 @@ var _rcb=renderCar;renderCar=function(){betApply();return _rcb.apply(this,argume
 })();
 })();
 </script>
-<script>(function(){try{var t=document.getElementById('ttl'),c=document.getElementById('cr'),b=document.getElementById('ttgo');if(!t||!c||!b||c.hidden)return;t.hidden=false;var a=document.getElementById('avs'),g=document.getElementById('avgo');b.onclick=function(){t.hidden=true;if(a){a.hidden=false;if(g)g.focus({preventScroll:true});a.scrollTop=0}};if(g)g.onclick=function(){if(a)a.hidden=true};b.focus()}catch(e){}})();</script>
+<script>(function(){try{var t=document.getElementById('ttl'),c=document.getElementById('cr'),b=document.getElementById('ttgo');if(!t||!c||!b||c.hidden)return;t.hidden=false;var tp=function(){t.scrollTop=0;try{window.scrollTo(0,0)}catch(e){}};tp();requestAnimationFrame(tp);setTimeout(tp,80);setTimeout(tp,400);window.addEventListener('load',tp);window.addEventListener('pageshow',tp);var a=document.getElementById('avs'),g=document.getElementById('avgo');b.onclick=function(){t.hidden=true;if(a){a.hidden=false;if(g)g.focus({preventScroll:true});a.scrollTop=0}};if(g)g.onclick=function(){if(a)a.hidden=true};b.focus()}catch(e){}})();</script>
 <script>
 (function(){try{var _rf1=resolveFight;var lc=function(){return(S&&S.recP&&S.recP[1])||0};resolveFight=function(){var L0=0;try{L0=lc();if(S&&!S.fl1&&L0>0)S.fl1=1}catch(e){}var r=_rf1.apply(this,arguments);try{if(S&&!S.fl1&&lc()>L0){S.fl1=1;var sc0=S.scene&&S.scene.id==='mpfl';if(!sc0){var fl={id:'mpfl'};if(S.scene){S.sq=S.sq||[];S.sq.push(fl)}else S.scene=fl}}}catch(e){}return r}}catch(e){}})();
 (function(){try{var _mpN=mpNext;mpNext=function(kind){var first=S&&S.mpb==null&&!S.edOpp;var r=_mpN.apply(this,arguments);try{if(first&&S.rsv&&S.rsv.pro&&S.rsv.opp&&S.rsv.opp.t==='Estreia profissional'){S.edOpp=1;S.rsv.opp={n:'Iago The Editor',k:'',o:6,c:'0-0-0',w:0,ev:'Money Moicano MMA',t:'Estreia profissional',rd:3,kind:'mp',ed:1};S.mpb=6}}catch(e){}return r};var _pT=proTick;proTick=function(){var r0=S&&S.rsv,had=!!(r0&&r0.pro&&r0.a2);var out=_pT.apply(this,arguments);try{if(r0&&r0.pro&&r0.a2&&!had&&r0.opp&&r0.opp.ed&&!S.edSc){S.edSc=1;var sc={id:'mpiago'};S.log.unshift([S.day,'Encontro com o Renato Moicano no Cornerman: seu adversário na estreia será o Iago The Editor.']);if(S.scene){S.sq=S.sq||[];S.sq.push(sc)}else S.scene=sc}}catch(e){}return out}}catch(e){}})();
@@ -3957,5 +3957,35 @@ main:not([hidden]){animation-fill-mode:backwards}
 <style id="anchor-fix">
 /* Chrome: quando o Twitter da aba Início cresce, o "ancoramento de rolagem" empurrava a tela para cima */
 body,#v-inicio,#log{overflow-anchor:none}
+</style>
+<style id="ttl-top">
+/* Tela inicial: abre sempre no topo, sem cobrir a logo */
+#ttl{align-items:flex-start;padding-top:calc(6px + env(safe-area-inset-top,0px))}
+#ttl .tw{min-height:100%;gap:18px}
+#ttl .tlogo{margin-top:0}
+#ttl h1{margin-top:4px}
+</style>
+<style id="inicio-lock">
+/* Aba Início: todas as áreas com tamanho fixo (só o Twitter, no fim da página, pode crescer) */
+#pcard{box-sizing:border-box;contain:layout style}
+#pcard .phead{height:76px;align-items:flex-start;overflow:visible}
+#pcard .pnm{height:72px;overflow:hidden}
+#pcard .top{height:26px;overflow:hidden}
+#pcard .top b{display:block;height:26px;line-height:26px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pcard #hname,#pcard #hrank{display:inline}
+#pcard #gymline{height:32px;overflow:hidden;line-height:16px!important}
+#pcard #pattr{height:46px;overflow:hidden;align-content:start}
+#pcard .pst{height:44px;overflow:hidden;align-content:start}
+#pcard .pst b{height:18px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;overflow-wrap:normal}
+#pcard .pclab{height:14px;line-height:14px;overflow:hidden}
+#pcard #cond{height:132px;overflow:hidden}
+#pcard #cond .row{height:20px;margin:3px 0;box-sizing:border-box}
+#pcard #cond .row .l,#pcard #cond .row .v{white-space:nowrap}
+#pcard .phoje{height:40px;overflow:hidden;box-sizing:border-box}
+#pcard .phoje>div{height:18px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#rest,#month{box-sizing:border-box;height:46px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#attrs{box-sizing:border-box}
+#attrs .row{height:42px;box-sizing:border-box}
+#attrs .row .l{white-space:nowrap}
 </style>
 </body></html>

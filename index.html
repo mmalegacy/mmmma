@@ -812,6 +812,7 @@ nav button.on::before{border-radius:0 0 3px 3px}
 <div id="avs" class="pop" role="dialog" aria-label="Avisos" hidden><div class="aw"><h2>AVISOS</h2><p class="ct mt">Criando uma tela que só eu e 2 amigos vão ler, a magia da falta de emprego</p><p class="am"><strong class="at">Moicano, Papajab, anão do sexto round, marcas e cia:</strong>Caso pensem em me processar saiba que eu sou um pobre jovem com futuro incerto por culpa do Lula e do PT que fudeu o país governando ele por 2 décadas, então tenham dó, mesmo com certas frases sendo problemáticas é tudo humor. E também não tô ganhando nem um centavo com isso.</p><p class="am"><strong class="at">Moicano, caso incrivelmente mais de 10 pessoas descubram meu jogo e esteja vendo isso e não quer me processar (ainda):</strong> me bote no MMMMMMA pra ser mais um dos 300 integrantes do “peso quase inexistente” que já tem, ou ao menos cometa fraude no sorteio do VIP e me dê os ingressos. Também tô aceitando uma lobby no CS.</p><p class="ct">Caso tenham algum problema, tentar contato cmg via redes sociais.<br><a href="https://instagram.com/edu.frnds" target="_blank" rel="noopener">instagram.com/edu.frnds</a><br><a href="https://x.com/edu_frnds" target="_blank" rel="noopener">X.com/edu_frnds</a></p><button class="go" id="avgo" type="button">Continuar</button></div></div>
 <div id="cr" class="pop" hidden style="position:fixed;inset:0;z-index:10;background:var(--bg);overflow:auto;padding:calc(20px + env(safe-area-inset-top,0px)) 14px 20px">
  <div style="max-width:520px;margin:0 auto">
+  <div id="crs">
   <h2 style="font-size:26px;margin-top:10px">Criar lutador</h2>
   <p style="color:var(--mute)">A carreira começa em 1 de novembro de 2026. Informe quando você nasceu e a idade inicial é calculada a partir daí.</p>
   <div class="card" style="margin-bottom:12px">
@@ -853,6 +854,7 @@ nav button.on::before{border-radius:0 0 3px 3px}
    <div id="cgs" style="display:flex;flex-direction:column;gap:8px"></div>
   </div>
   <button class="go" id="cgo">Começar carreira</button>
+  </div>
  </div>
 </div>
 <div id="fgt" class="pop" hidden style="position:fixed;inset:0;z-index:20;background:#000;overflow:auto;padding:calc(12px + env(safe-area-inset-top,0px)) 14px calc(16px + env(safe-area-inset-bottom,0px))"><div id="fgi" style="max-width:520px;margin:0 auto"></div></div>
@@ -3944,8 +3946,16 @@ nav{z-index:5;transform:translateZ(0);-webkit-backface-visibility:hidden;backfac
 main:not([hidden]){animation-fill-mode:backwards}
 </style>
 <style id="cr-scroll-fix">
-/* Criar lutador: o degradê ficava pintado no próprio container que rola e piscava/sumia no Chrome */
-#cr{background:#2b0f4d!important;transform:translateZ(0);padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))!important}
+/* Criar lutador: fundo fixo na tela; só a lista de opções rola */
+#cr{background:#2b0f4d!important;overflow:hidden!important;padding:0!important;overscroll-behavior:contain}
+#cr:not([hidden]){display:flex}
 #cr::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 100% 100%,rgba(255,212,0,.22) 0,rgba(255,212,0,0) 42%),linear-gradient(170deg,#3b1a66 0%,#2b0f4d 100%)}
+#cr>div{width:100%;height:100%;box-sizing:border-box;display:flex;flex-direction:column;padding:0 14px}
+#cr>div>h2,#cr>div>p{flex:none}
+#crs{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-top:calc(20px + env(safe-area-inset-top,0px));padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+</style>
+<style id="anchor-fix">
+/* Chrome: quando o Twitter da aba Início cresce, o "ancoramento de rolagem" empurrava a tela para cima */
+body,#v-inicio,#log{overflow-anchor:none}
 </style>
 </body></html>

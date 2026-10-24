@@ -3987,5 +3987,24 @@ body,#v-inicio,#log{overflow-anchor:none}
 #attrs{box-sizing:border-box}
 #attrs .row{height:42px;box-sizing:border-box}
 #attrs .row .l{white-space:nowrap}
+/* Nome longo: desce para a 2ª linha (fonte menor) em vez de cortar com "..."; a altura total da área continua fixa */
+#pcard .top.two{height:36px}
+#pcard .top.two b{height:36px;line-height:18px;font-size:17px;white-space:normal;overflow-wrap:anywhere;text-overflow:clip;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 </style>
+<script id="name-fit">
+(function(){
+ var top=document.querySelector('#pcard .top');if(!top)return;
+ var b=top.querySelector('b'),lastW=-1,busy=false;
+ function fit(){
+  if(busy)return;busy=true;
+  top.classList.remove('two');
+  if(top.clientWidth>0&&b.scrollWidth>b.clientWidth+1)top.classList.add('two');
+  lastW=top.clientWidth;busy=false;
+ }
+ try{new MutationObserver(function(){if(!busy)fit()}).observe(b,{childList:true,subtree:true,characterData:true,attributes:true})}catch(e){}
+ try{new ResizeObserver(function(){if(top.clientWidth!==lastW)fit()}).observe(top)}catch(e){window.addEventListener('resize',fit)}
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+ setTimeout(fit,0);
+})();
+</script>
 </body></html>

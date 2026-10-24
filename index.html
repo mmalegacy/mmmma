@@ -615,7 +615,7 @@ body{background:transparent!important;transition:none!important}
  <span class="chip" id="money" hidden style="display:none"></span>
  <div class="pclab">Condição</div>
  <div class="card" id="cond"></div>
- <div class="phoje"><div>HOJE: <span id="date"></span></div><div id="fline">Luta em <b id="dsub"></b></div></div>
+ <div class="phoje"><div>HOJE: <span id="date"></span></div><div id="fline">Luta em <b id="dsub"></b><span id="dleft"></span></div></div>
  </section>
 
  <button class="go" id="rest" style="background:#0022dd">Próxima semana</button>
@@ -860,6 +860,7 @@ nav button.on::before{border-radius:0 0 3px 3px}
 <div id="toast"></div>
 <div id="pay"><div class="pay-box"><div id="payt" class="pay-t"></div><div class="pay-l">Você ganhou</div><div id="payv" class="pay-v"></div><div id="payp" class="pay-p"></div><button class="go" id="payok" style="margin-top:16px">Continuar</button></div></div>
 <div id="bjpop"><div class="pay-box"><div style="font-size:42px;line-height:1">🃏</div><div class="pay-t" style="margin-top:8px">Novo no Social</div><div style="margin-top:10px;font-size:17px;line-height:1.4"><b>Blackjack</b> agora está disponível na área do <b>Social</b>.</div><button class="go" id="bjok" style="margin-top:16px">Entendi</button></div></div>
+<style id="nav-fix">#fblk #fstack{min-height:0!important}#fight[hidden]{display:block!important;visibility:visible!important}#dleft{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:3px;background:var(--btn,var(--red));color:var(--btnt,#fff);font-weight:800;font-size:12px;letter-spacing:.02em;white-space:nowrap;vertical-align:baseline}#cr{overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}body:has(#cr:not([hidden])) nav{visibility:hidden;pointer-events:none}</style>
 <style id="nav-icons">nav button .ic svg{display:block;width:23px;height:23px;margin:0 auto 2px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}nav button.on .ic svg{stroke-width:2.4}nav button .ic{line-height:1}</style>
 <nav aria-label="Abas">
  <button class="on" data-tab="inicio"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>Início</button>
@@ -931,7 +932,7 @@ function render(){try{applyTheme()}catch(e){}try{igBadge()}catch(e){}if(S.mo!=nu
  $("nfsub").textContent=S.rsv&&S.rsv.kind==='cc'?"Foco no Contender Crimes":"Lutas > Ofertas de luta";
  var L=S.last;$("lastres").hidden=!L;if(L)$("lastres").innerHTML='<div style="color:var(--mute);font-size:13px">Último resultado</div><b style="color:'+(L.r==='w'?'#22c55e':L.r==='l'?'#ff3b30':'var(--mute)')+'">'+(L.r==='w'?'VITÓRIA':L.r==='l'?'DERROTA':'EMPATE')+'</b>'+(L.o?'<div>'+(L.r==='w'?'Vitória sobre ':L.r==='l'?'Derrota para ':'Empate com ')+esc(L.o)+'</div>':'')+lrDelta(L);
  $("money").textContent="R$ "+S.cash.toLocaleString("pt-BR");
- var F=S.fs===true;$("days").textContent=S.left;$("poster").hidden=!F;$("nofight").hidden=F;$("fline").hidden=!F;$("fight").hidden=!F;$("date").textContent=dt(S.day,1);var ld=$("ldt");if(ld){ld.textContent=dt(S.day,1);$("lfl").hidden=!F;$("lfd").textContent=dt(S.day+S.left,1)}$("age").textContent=age(S.day)+" anos";var o=ovr();$("ovr").textContent=o;$("ovr").style.color=ovrCol(o);$("dsub").textContent=dt(S.day+S.left,1);if(S.fs&&S.opp&&S.left<1&&S.st==='ufc'&&(socTitleFight(S.opp)||S.opp.r===0)&&natOf(S.opp.n)==='RU')igPost('encarada');$("fight").disabled=S.left>0;$("fhint").textContent=F&&S.left>0?"Disponível em "+dt(S.day+S.left,1)+".":"";
+ var F=S.fs===true;$("days").textContent=S.left;$("poster").hidden=!F;$("nofight").hidden=F;$("fline").hidden=!F;$("fight").hidden=!F;$("date").textContent=dt(S.day,1);var ld=$("ldt");if(ld){ld.textContent=dt(S.day,1);$("lfl").hidden=!F;$("lfd").textContent=dt(S.day+S.left,1)}$("age").textContent=age(S.day)+" anos";var o=ovr();$("ovr").textContent=o;$("ovr").style.color=ovrCol(o);$("dsub").textContent=dt(S.day+S.left,1);var dl=$("dleft");if(dl)dl.textContent=S.left<1?"É HOJE!":S.left===1?"falta 1 dia":"faltam "+S.left+" dias";if(S.fs&&S.opp&&S.left<1&&S.st==='ufc'&&(socTitleFight(S.opp)||S.opp.r===0)&&natOf(S.opp.n)==='RU')igPost('encarada');$("fight").disabled=!F||S.left>0;$("fhint").textContent="";
  
  $("cond").innerHTML=bar("Energia",S.en,"linear-gradient(90deg,#ff3b30,#ffbe00,#22d466) 0 0/"+(S.en>0?10000/S.en:100)+"% 100%")+barS()+bar("Mental",S.mo,gradBar(S.mo))+bar("Fama",S.fame,gradBar(S.fame))+bar("Queixo",Math.round(S.chin*10)/10,gradBar(S.chin));
  var h="";Object.keys(S.bx||S.a).forEach(function(k){h+='<div class="row"><span class="l">'+k+'</span><div class="bar"><i style="width:'+eaD(k)+'%;background:'+col(eaD(k))+'"></i></div><span class="v" style="color:'+col(eaD(k))+'">'+eaD(k)+'</span><button class="tr" data-k="'+k+'"'+(S.en<25||(F&&S.left<1)||(S.rst&&S.day<S.rst)?" disabled":"")+'>Treinar</button></div>'+(clsOn(k)?'<div class="clsnote">Aula particular: '+(S.cls[k]-S.day)+(S.cls[k]-S.day===1?' dia restante':' dias restantes')+' de 50% de bônus</div>':'')});
@@ -3095,7 +3096,7 @@ first.parentNode.insertBefore(mk,first);first.parentNode.insertBefore(blk,first)
 if(fs)blk.appendChild(fs);else{blk.appendChild(pz);blk.appendChild(nf)}
 var bt=document.createElement('div');bt.id='fbtn';
 ['rest','month'].forEach(function(i){var e=$(i);if(e)bt.appendChild(e)});
-var fg0=$('fight'),mo0=$('month');if(fg0&&mo0)bt.insertBefore(fg0,mo0);
+var fg0=$('fight');if(fg0)blk.appendChild(fg0);
 var hint=[].slice.call(v.querySelectorAll('div')).filter(function(d){return d.children.length===0&&/Cada treino gasta/.test(d.textContent)})[0];
 var mk2=document.createElement('div');mk2.id='fa-bt';mk2.style.display='none';
 if(hint&&hint.parentNode){hint.parentNode.insertBefore(mk2,hint.nextSibling);hint.parentNode.insertBefore(bt,mk2.nextSibling)}else{v.appendChild(mk2);v.appendChild(bt)}
@@ -3104,7 +3105,7 @@ if(fo&&fo.parentNode)fo.parentNode.insertBefore(mk3,fo);
 function enC(v){var s=[[255,59,48],[255,190,0],[34,212,102]],p=Math.max(0,Math.min(100,v))/50,i=p>=1?1:0,t=p-i,a=s[i],b=s[i+1],c=a.map(function(x,k){return Math.round(x+(b[k]-x)*t)});return 'rgb('+c.join(',')+')'}
 function en(){var e=$('enval');if(e){e.textContent=Math.round(S.en);e.style.color=enC(S.en)}var rb=$('rstbadge');if(rb)rb.style.display=(S.rst&&S.day<S.rst)?'inline-block':'none'}
 function place(t){
- if(t==='lutas'){var a=$('fa-lu');if(a){if(blk.parentNode!==a)a.appendChild(blk);if(bt.parentNode!==a)a.appendChild(bt)}if(fo&&a&&fo.parentNode!==a)a.appendChild(fo);var fg=$('fight'),mo=$('month');if(fg&&mo&&fg.parentNode!==bt)bt.insertBefore(fg,mo);cur='lutas';syncFo();syncBtns()}
+ if(t==='lutas'){var a=$('fa-lu');if(a){if(blk.parentNode!==a)a.appendChild(blk);if(bt.parentNode!==a)a.appendChild(bt)}if(fo&&a&&fo.parentNode!==a)a.appendChild(fo);var fg=$('fight');if(fg&&fg.parentNode!==blk)blk.appendChild(fg);cur='lutas';syncFo();syncBtns()}
  else{
   if(blk.parentNode!==v&&mk.parentNode)mk.parentNode.insertBefore(blk,mk.nextSibling);
   if(bt.parentNode!==v&&mk2.parentNode)mk2.parentNode.insertBefore(bt,mk2.nextSibling);
@@ -3115,10 +3116,10 @@ function place(t){
 }
 var cur='';var _sbn=0;function syncBtns(){var fg=$('fight'),mo=$('month');if(!fg||!mo)return;var on=S.fs===true&&S.left<1;
  if((!v.hidden&&cur==='lutas')||(!vl.hidden&&cur!=='lutas'))try{place(!v.hidden?'':'lutas')}catch(e){}
- if(fg.parentNode!==bt||mo.parentNode!==bt)bt.insertBefore(fg,mo);
- var inI=(cur!=='lutas'),on2=on&&!inI,h=!(S.fs===true),d=on2?'':'none',m=on2?'none':'';
- if(fg.hidden!==h)fg.hidden=h;if(fg.style.display!==d)fg.style.display=d;if(mo.style.display!==m)mo.style.display=m;
- if(on2){if(fg.disabled)fg.disabled=false;if(++_sbn%4===0&&getComputedStyle(fg).display==='none')fg.style.setProperty('display','block','important')}}
+ if(fg.parentNode!==blk)blk.appendChild(fg);
+ var inI=(cur!=='lutas'),on2=on&&!inI,m='';
+ if(fg.hidden)fg.hidden=false;if(fg.style.display!=='')fg.style.display='';if(fg.disabled!==!on)fg.disabled=!on;if(mo.style.display!==m)mo.style.display=m;
+ }
 setInterval(function(){try{if(!document.hidden&&S&&S.day!=null)syncBtns()}catch(e){}},500);
 function syncFo(){if(!fo)return;fo.style.display=(!vl.hidden&&S.fs===true)?'none':''}
 var _ro=renderOffers;renderOffers=function(){var r=_ro.apply(this,arguments);try{syncFo()}catch(e){}return r};

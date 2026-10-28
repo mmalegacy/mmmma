@@ -790,6 +790,7 @@ nav button.on::before{border-radius:0 0 3px 3px}
 <div id="ret" class="pop" hidden style="position:fixed;inset:0;z-index:11;background:var(--bg);overflow:auto;padding:calc(20px + env(safe-area-inset-top,0px)) 14px 20px">
  <div style="max-width:520px;margin:0 auto">
   <h2 style="font-size:26px;margin-top:10px">Aposentadoria</h2>
+  <div id="retach"></div>
   <div class="card" id="rets" style="margin-top:10px"></div>
   <button class="go" id="retdl" type="button" style="background:var(--card);color:var(--ink);border:2px solid var(--btn,var(--ink));margin-top:10px">Baixar imagem da carta</button>
   <button type="button" id="sharegame2" style="display:flex;width:100%;box-sizing:border-box;justify-content:center;align-items:center;gap:8px;margin-top:10px;padding:12px 16px;border:1px solid var(--mute);border-radius:12px;background:transparent;color:var(--ink);font:600 14px system-ui,sans-serif;cursor:pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>Compartilhar MMMMA Legacy</button>
@@ -807,8 +808,16 @@ nav button.on::before{border-radius:0 0 3px 3px}
  <button class="go" id="ttgo" type="button">Começar carreira</button>
  <div class="tf">A carreira começa em 1 de novembro de 2026</div>
 </div></div></div>
-<div id="tut" class="pop" role="dialog" aria-label="Aba" hidden><div class="dbx"><h2 id="tuth"></h2><p class="tsub" id="tuts"></p><p id="tutp"></p><button class="go" id="tutgo" type="button">Entendi</button></div></div>
-<div id="avs" class="pop" role="dialog" aria-label="Avisos" hidden><div class="aw"><h2>AVISOS</h2><p class="ct mt">Criando uma tela que só eu e 2 amigos vão ler, a magia da falta de emprego</p><p class="am"><strong class="at">Moicano, Papajab, anão do sexto round, marcas e cia:</strong>Caso pensem em me processar saiba que eu sou um pobre jovem com futuro incerto por culpa do Lula e do PT que fudeu o país governando ele por 2 décadas, então tenham dó, mesmo com certas frases sendo problemáticas é tudo humor. E também não tô ganhando nem um centavo com isso.</p><p class="am"><strong class="at">Moicano, caso incrivelmente mais de 10 pessoas descubram meu jogo e esteja vendo isso e não quer me processar (ainda):</strong> me bote no MMMMMMA pra ser mais um dos 300 integrantes do “peso quase inexistente” que já tem, ou ao menos cometa fraude no sorteio do VIP e me dê os ingressos. Também tô aceitando uma lobby no CS.</p><p class="ct">Caso tenham algum problema, tentar contato cmg via redes sociais.<br><a href="https://instagram.com/edu.frnds" target="_blank" rel="noopener">instagram.com/edu.frnds</a><br><a href="https://x.com/edu_frnds" target="_blank" rel="noopener">X.com/edu_frnds</a></p><button class="go" id="avgo" type="button">Continuar</button></div></div>
+<div id="cqs" class="pop" role="dialog" aria-label="Conquistas" hidden style="position:fixed;inset:0;z-index:10;background:var(--bg);overflow:auto;padding:calc(20px + env(safe-area-inset-top,0px)) 14px calc(20px + env(safe-area-inset-bottom,0px))">
+ <div style="max-width:520px;margin:0 auto">
+  <h2 style="font-size:26px;margin-top:10px">Conquistas</h2>
+  <div id="cqlist"></div>
+  <div id="cqstatus"></div>
+  <button class="go" id="cqgo" type="button">Continuar</button>
+ </div>
+</div>
+<div id="tut" class="pop" role="dialog" aria-label="Aba" hidden><div class="dbx"><h2 id="tuth"></h2><p class="tsub" id="tuts"></p><p id="tutp"></p><button class="go" id="tutgo" type="button">Entendi</button></div><button id="tutskip" type="button" style="position:fixed;left:50%;transform:translateX(-50%);bottom:calc(22px + env(safe-area-inset-bottom,0px));background:var(--card,#1c1c1e);border:1px solid var(--red,#e60000);border-radius:12px;color:#fff;text-decoration:none;font-size:17px;font-weight:700;padding:14px 26px;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.5)">Pular tutorial e dicas</button></div>
+<div id="avs" class="pop" role="dialog" aria-label="Avisos" hidden><div class="aw"><h2>AVISOS</h2><p class="ct mt">Criando uma tela que só eu e 2 amigos vão ler, a magia da falta de emprego</p><p class="am"><strong class="at">Moicano, Papajab, anão do sexto round, marcas e cia:</strong>Caso pensem em me processar saiba que eu sou um pobre jovem com futuro incerto por culpa do Lula e do PT que fudeu o país governando ele por 2 décadas, então tenham dó, mesmo com certas frases sendo problemáticas é tudo humor. E também não tô ganhando nem um centavo com isso.</p><p class="am"><strong class="at">Moicano, caso incrivelmente mais de 10 pessoas descubram meu jogo e esteja vendo isso e não quer me processar (ainda):</strong> me bote no MMMMMMA pra ser mais um dos 300 integrantes do “peso quase inexistente” que já tem, ou ao menos cometa fraude no sorteio do VIP e me dê os ingressos. Também tô aceitando uma lobby no CS.</p><p class="ct" style="font-size:15px;font-weight:700;line-height:1.6;color:#faf9f5">Caso tenham algum problema, tentar contato cmg via redes sociais.<br><a href="https://instagram.com/edu.frnds" target="_blank" rel="noopener" style="font-size:13px;font-weight:700;color:#ffd400">instagram.com/edu.frnds</a><br><a href="https://x.com/edu_frnds" target="_blank" rel="noopener" style="font-size:13px;font-weight:700;color:#ffd400">X.com/edu_frnds</a></p><button class="go" id="avgo" type="button">Continuar</button></div></div>
 <div id="cr" class="pop" hidden style="position:fixed;inset:0;z-index:10;background:var(--bg);overflow:auto;padding:calc(20px + env(safe-area-inset-top,0px)) 14px 20px">
  <div style="max-width:520px;margin:0 auto">
   <div id="crs">
@@ -1214,7 +1223,8 @@ drawOpts();
 function drawFaces(){$('cfc').innerHTML=faceHTML(cf);$('cfn').hidden=cf!==1}
 $('cfc').onclick=function(e){var b=e.target.closest('button');if(!b)return;cf=+b.dataset.fc;drawFaces()};
 drawFaces();
-$('cgo').onclick=function(){var b=chk();if(!b)return;S.base=cb;S.face=cf;S.gym=cg;S.wc=+$('cw').value;if(S.day<=1)for(var q in S.a)S.a[q]=10;var bb=BASES[cb].b;for(var k in bb)S.a[k]=Math.min(99,S.a[k]+bb[k]);S.bd=b;S.fn=$('cn').value.trim();S.ln=$('cs').value.trim();S.nk=$('ca').value.trim();S.hig=$('chi').value.trim();S.htw=$('cht').value.trim();$('cr').hidden=true;render();fitNames();try{window.tutOpen('inicio',true)}catch(e){}};
+$('cgo').onclick=function(){var b=chk();if(!b)return;S.base=cb;S.face=cf;S.gym=cg;S.wc=+$('cw').value;if(S.day<=1)for(var q in S.a)S.a[q]=10;var bb=BASES[cb].b;for(var k in bb)S.a[k]=Math.min(99,S.a[k]+bb[k]);S.bd=b;S.fn=$('cn').value.trim();S.ln=$('cs').value.trim();S.nk=$('ca').value.trim();S.hig=$('chi').value.trim();S.htw=$('cht').value.trim();$('cr').hidden=true;render();fitNames();try{window.renderConq()}catch(e){}$('cqs').hidden=false;$('cqs').scrollTop=0};
+$('cqgo').onclick=function(){$('cqs').hidden=true;try{window.tutOpen('inicio',true)}catch(e){}};
 $('cw').innerHTML='<option value="" disabled selected hidden>Selecione a categoria</option>'+DV.map(function(d,i){return '<option value="'+i+'">'+d[0]+' (até '+d[1]+' kg)</option>'}).join('');$('cw').value=(S.bd&&S.wc!=null)?S.wc:'';
 if(!S.bd||!S.fn||S.base==null){if(S.bd){$('cd').value=S.bd[2];$('cm').value=S.bd[1];$('cy').value=S.bd[0]}$('cr').hidden=false;chk()}
 function fitNames(){var p0=document.querySelector('.poster .in');if(!p0)return;var w0=p0.offsetWidth;if(!w0)return;var k0=w0+'|'+(p0.textContent||'');if(fitNames.k===k0)return;fitNames.k=k0;document.querySelectorAll('.poster .in>div:nth-child(-n+2)').forEach(function(d,i){d.style[i?'marginRight':'marginLeft']=i?'14px':'';var w=d.offsetWidth;if(!w)return;var s=Math.round(Math.min(30,Math.max(0,(120-w)/2)));if(s)d.style[i?'marginRight':'marginLeft']=(i?14+s:s)+'px'})}
@@ -1312,7 +1322,7 @@ function resolveFight(F){if(!S.fs||S.left>0)return;var c0=S.cash,_m0=S.mo==null?
   else if(orr===0){if(res==='w'){S.rk=0;if(S.ch.indexOf(S.wc)<0)S.ch.push(S.wc);champSwap(S.wc);note='Você é o novo campeão do UFC no '+DV[S.wc][0]+'!'}}
   else if(res==='w')S.rk=S.rk>=16?15:Math.max(1,orr!=null&&orr<S.rk?orr:S.rk-1);
   else if(res==='l')S.rk=Math.min(16,S.rk+1)}
- if(S.st==='lfa'&&S.rsv&&S.rsv.kind==='dw'&&res==='w'&&S.ls>=2&&kind!=='title'&&kind!=='rem'&&kind!=='dw'){S.rsv=null;S.dwo=false;S.dwl=false;S.st='ufc';S.ufc=true;S.rk=16;S.chg=null;aud+=(aud?' ':'')+ufcSign();S.log.unshift([S.day,'Você assinou contrato direto com o UFC.']);note='Duas vitórias seguidas! A luta do Contender Series foi cancelada e você recebeu um contrato direto com o UFC. Você estreia sem ranking no '+DV[S.wc][0]+'.';var lu0={id:'lfaufc',loc:op.loc||lfl()[(op.n||'').length%5]};if(S.scene){S.sq=S.sq||[];S.sq.push(lu0)}else S.scene=lu0}
+ if(S.st==='lfa'&&S.rsv&&S.rsv.kind==='dw'&&res==='w'&&S.ls>=2&&kind!=='title'&&kind!=='rem'&&kind!=='dw'){S.rsv=null;S.dwo=false;S.dwl=false;S.st='ufc';S.ufc=true;S.rk=16;S.chg=null;var lu0={id:'lfaufc',loc:op.loc||lfl()[(op.n||'').length%5]};if(S.scene){S.sq=S.sq||[];S.sq.push(lu0)}else S.scene=lu0;aud+=(aud?' ':'')+ufcSign();S.log.unshift([S.day,'Você assinou contrato direto com o UFC.']);note='Duas vitórias seguidas! A luta do Contender Series foi cancelada e você recebeu um contrato direto com o UFC. Você estreia sem ranking no '+DV[S.wc][0]+'.';}
  if(S.st==='lfa'&&kind!=='dw'&&res==='w'&&S.dwl&&!S.dwo&&Math.random()<.5){S.dwo=true;S.dwl=false;var da0={id:'dwagain'};if(S.scene){S.sq=S.sq||[];S.sq.push(da0)}else S.scene=da0;note+=(note?' ':'')+"Você foi selecionado pro Dana White's Contender Series."}
  socResult(res,txt,note,op);if(op&&op.col){S.cold=1;}if(op&&op.wh){S.whd=1;igPost('casabranca');S.scene={id:'whp',r:res};if(res==='w'){S.sq=S.sq||[];S.sq.push({id:'whv'});if(S.fol==null)S.fol=1200;if(S.tfol==null)S.tfol=600;S.fol+=10000000;S.tfol+=1000000;aud+=(aud?' ':'')+'Bônus da Casa Branca: +10.000.000 seguidores no Instagram e +1.000.000 no Twitter.'}}else if(op&&(op.col||op.colRetFinal)){if(op.col&&!op.colRetFinal){if(S.fol==null)S.fol=1200;var cgC=20000000+Math.floor(Math.random()*40000001);S.fol+=cgC;aud+=(aud?' ':'')+'Ganho do Coliseu: +'+cgC.toLocaleString('pt-BR')+' seguidores no Instagram.'}if(!(op.colRetFinal&&res!=='w')){var rmx=op.colRetFinal?1:0,cp0={id:'colp',r:res,rem:rmx,loc:op.loc||''},cv0={id:'colv',r:res,rem:rmx,loc:op.loc||''};if(S.scene){S.sq=S.sq||[];S.sq.push(cp0,cv0)}else{S.scene=cp0;S.sq=S.sq||[];S.sq.push(cv0)}}}else if(op&&res==='w'&&S.st==='ufc'&&S.ch&&S.ch.length===4&&(op.tri||op.up)){var qp0={id:'qfp',loc:op.loc||''},qv0={id:'qfv',loc:op.loc||''};if(S.scene){S.sq=S.sq||[];S.sq.push(qp0,qv0)}else{S.scene=qp0;S.sq=S.sq||[];S.sq.push(qv0)}}else if(op&&(op.tri||(op.up&&S.st==='ufc'&&S.ch&&(res==='w'?S.ch.length===3:S.ch.length===2)))&&!S.scene)S.scene={id:'trp',r:res,loc:op.loc||''};if(res==='w'&&op&&S.st==='ufc'&&op.msgf&&!S.msgW){S.msgW=1;if(S.scene){S.sq=S.sq||[];S.sq.push({id:'msgwi'})}else S.scene={id:'msgwi'}}if(res!=='w'&&op&&S.st==='ufc'&&S.ch&&S.ch.length===1&&S.ch.indexOf(op.dv!=null?op.dv:S.wc)<0&&op.r===0&&!op.wh&&!op.tri&&!op.col&&!op.ic&&!op.uf&&!op.ui){var dl2={id:'dcl',loc:op.loc||''},dlL=[dl2];if(!S.dcpd){S.dcpd=1;dlL.unshift({id:'dcp',loc:op.loc||''})}S.sq=S.sq||[];if(S.scene)S.sq.push.apply(S.sq,dlL);else{S.scene=dlL.shift();S.sq.push.apply(S.sq,dlL)}}if(res==='w'&&op&&S.st==='ufc'&&!S.dcwd&&S.rk===0&&S.ch&&S.ch.length===2&&!op.wh&&!op.tri&&!op.col){S.dcwd=1;var dq={id:'dcw',loc:op.loc||''},dv2={id:'dcv',loc:op.loc||''};if(S.scene){S.sq=S.sq||[];S.sq.push(dq,dv2)}else{S.scene=dq;S.sq=S.sq||[];S.sq.push(dv2)}}if(res==='w'&&op&&S.st==='ufc'&&S.msgL&&!S.msgW&&!S.msgW2&&S.rk===0&&S.ch&&S.ch.length===1){S.msgW2=1;var w2={id:'msgw2',loc:op.loc||''};if(S.scene){S.sq=S.sq||[];S.sq.push(w2)}else S.scene=w2}if(res==='w'&&F&&F.rig&&S.st==='ufc'){var tk2={id:'tkw',loc:(op&&op.loc)||''};if(S.scene){S.sq=S.sq||[];S.sq.push(tk2)}else S.scene=tk2}if((res==='l'||res==='d')&&op&&S.st==='ufc'&&S.msg1&&!S.msgL&&op.msgf&&(/inturão/i.test(op.t||'')||op.ic||op.uf)&&!op.ic&&!(S.ch&&S.ch.length)){S.msgL=1;if(S.scene){S.sq=S.sq||[];S.sq.push({id:'msgl'})}else S.scene={id:'msgl'}}if(op&&op.apos){var aiv={id:'aposiv',loc:op.loc||''};if(S.scene){S.sq=S.sq||[];S.sq.push(aiv)}else S.scene=aiv}if(kind==='cc')igPost('cc1');dwMsg();setTimeout(autoDW,60);if(kind==='dw'&&res==='w'){S.mst=S.day+7;igPost('dw1');if(S.scene){S.sq=S.sq||[];S.sq.unshift(S.scene)}S.scene={id:'dwwin'}}if(kind==='dw'&&res==='l'){var dl0={id:'dwlose'};if(S.scene){S.sq=S.sq||[];S.sq.push(dl0)}else S.scene=dl0;S.dwlt=S.day+1}if(S.ufcsg)igPost('ufc1');if(res==='w'&&S.st==='lfa'&&S.lc)igPost('lfa1');if(res==='w'&&S.st==='ufc'&&S.ch&&S.ch.length)igPost('ufcch');if(res==='w'&&S.st==='ufc'&&S.rk===0&&!S.cbd&&!S.cbt)S.cbt=S.day+25;if(res==='w'&&S.st==='ufc'&&S.ch&&S.ch.length>=3&&!S.qdd&&!S.qdt)S.qdt=S.day+24;if(res==='w'&&S.st==='ufc'&&S.ch&&S.ch.length>=2)igPost('ufcch2');if(res==='w'&&S.st==='ufc'&&S.ch&&S.ch.length>=3)igPost('ufcch3');if(res==='w'&&S.st==='ufc'&&!op.ic&&(socTitleFight(op)||orr===0||S.rk===0)){S.utw=(S.utw||0)+1;ucDouble()}if(S.st==='ufc'&&(S.utw||0)>=7)igPost('ufcbelts');if(res==='w'&&S.st==='ufc'&&S.ch){[[2,'bon2',1000000,200000,'duplo campeão'],[3,'bon3',5000000,500000,'triplo campeão']].forEach(function(d){if(S.ch.length>=d[0]&&!S[d[1]]){S[d[1]]=1;if(S.fol==null)S.fol=1200;if(S.tfol==null)S.tfol=600;S.fol+=d[2];S.tfol+=d[3];aud+=(aud?' ':'')+'Bônus de '+d[4]+': +'+d[2].toLocaleString('pt-BR')+' seguidores no Instagram e +'+d[3].toLocaleString('pt-BR')+' no Twitter.'}})}if(S.st==='ufc'&&op.ev==='UFC'){if(res==='w'&&!S.uca&&!(S.uct||0)&&!S.ufw1d){S.ufw1d=1;S.sx5t=S.day+4;var fw1={id:'ufw1',loc:op.loc||''};if(S.scene){S.sq=S.sq||[];S.sq.push(fw1)}else S.scene=fw1}ucProg(res)}
  if(aud)note+=(note?' ':'')+aud;
@@ -2894,6 +2904,72 @@ var _scn0=showScene;showScene=function(){try{fgRel()}catch(e){}var r=_scn0.apply
 var injK=null;function injBack(){$('injc').style.display='none';$('injb').style.display='flex';injK=null}function injAsk(k){injK=k;$('injb').style.display='none';$('injc').style.display='block';$('injq').textContent=k==='y'?'Tem certeza que quer aceitar a luta pelo cinturão?':'Tem certeza que quer recusar a chance de lutar pelo cinturão?';$('injs').textContent=k==='y'?'Sim, aceitar':'Sim, recusar'}$('injy').onclick=function(){injAsk('y')};$('injn').onclick=function(){injAsk('n')};$('injv').onclick=injBack;$('injs').onclick=function(){var k=injK;injBack();if(k==='y')injAccept();else injRefuse()};
 if(S.ret)showRet();
 render();
+</script><script id="conq-js">
+(function(){
+var K='mma_conq',D={};
+try{D=JSON.parse(localStorage.getItem(K)||'null')||{}}catch(e){D={}}
+function sv(){try{localStorage.setItem(K,JSON.stringify(D))}catch(e){}}
+if(!D.m3){delete D.c3;D.m3=1;sv()}
+var RK=['c1','c4'],RA=[],PQ=[];
+var L=[
+ 'Termine sua primeira carreira.',
+ 'Tenha 30 vitórias no MMA Profissional.',
+ 'Seja quádruplo campeão sem nunca ter sido nocauteado na carreira profissional',
+ 'Se aposente como quádruplo campeão estando invicto no MMA Amador e Profissional',
+ 'Vença o Floyd por nocaute'
+];
+function chk(){
+ try{
+  if(typeof S==='undefined'||!S||!S.a)return;
+  var h=S.hist||[],rp=S.recP||[0,0,0],rc=S.rec||[0,0,0],n=false;
+  var ufc=h.filter(function(f){return /^UFC/.test(f.ev||'')}).length;
+  function g(k,c){if(c&&!D[k]){D[k]=1;n=true;(RK.indexOf(k)>=0?RA:PQ).push(k)}}
+  g('c1',!!S.ret);
+  g('c2',rp[0]>=30);
+  g('c3',!!S.ch&&S.ch.length>=4&&!h.some(function(f){return f.pro&&f.r==='l'&&/nocaute/i.test(f.h||'')}));
+  g('c4',!!S.ret&&!!S.ch&&S.ch.length>=4&&rc[1]===0);
+  g('c5',h.some(function(f){return /Floyd/i.test(f.n||'')&&f.r==='w'&&/nocaute/i.test(f.h||'')}));
+  if(n){sv();try{renRA()}catch(e){}}
+ }catch(e){}
+}
+var LOCK='<svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" style="flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1.3"/><path d="M12 17v1.5"/></svg>';
+var TC=['#ffffff','#4db8ff','#0f3dff','#7a2cff','#ff0a0a'];
+function trophy(on,c,z){z=z||40;return '<svg viewBox="0 0 24 24" width="'+z+'" height="'+z+'" aria-hidden="true" style="flex:none;fill:none;stroke:'+c+';stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H4v1a4 4 0 0 0 4 4"/><path d="M16 6h4v1a4 4 0 0 1-4 4"/><path d="M12 13v4"/><path d="M8 20h8"/><path d="M9.5 17h5v3h-5z"/></svg>'}
+window.renderConq=function(){
+ chk();
+ var box=document.getElementById('cqlist');if(!box)return;
+ var base='margin-bottom:12px;min-height:76px;display:flex;align-items:center;gap:14px';
+ box.innerHTML=L.map(function(t,i){
+  var done=!!D['c'+(i+1)],lock=i>0&&!D.c1;
+  if(lock)return '<div class="card" style="'+base+';color:var(--mute)">'+LOCK+'<span>Só aparecerá depois de você terminar sua primeira carreira.</span></div>';
+  return '<div class="card" style="'+base+(done?';background:#ffb800;border-color:#ffb800;color:#000':'')+'">'+trophy(done,TC[i])+'<div><div style="font-weight:600;font-size:17px">'+t+'</div>'+(done?'<div style="color:#000;font-size:17px;font-weight:800;margin-top:3px">✓ Conquistada</div>':'')+'</div></div>';
+ }).join('');
+ var ST=[['INÚTIL','Já não basta não ter conquistas de verdade na vida, até num joguinho de navegador você consegue ser um fracasso.'],['Brasileiro médio','Tem umas conquistas alí e aqui mas nada que impressione. Sempre vai ter alguém pra ser o 01 e você... eterno 02.'],['Dustin Poirier','Na boqueta pra conseguir a coroação máxima da carreira, mas não conseguiu a honra máxima de um atleta de mma. Espero que tome cuidado com seus problemas alcoólicos se não.. IGBBMN.'],['PETISTA VAGABUNDO','Somente um petista vagabundo que não trabalha busca platinar até a porra de um joguinho de navegador feito por outro petista vagabundo que não trabalha. Olha, tá de parabéns irmão ou irmã, bote no currículo agora que você fez 100% dessa porra aqui, e no Natal vem comemorar comigo essa conquista sua no Baile do Prakasa.']];
+ var q=0;for(var z=1;z<=5;z++)if(D['c'+z])q++;
+ var pc=q*20,st=pc<=20?ST[0]:pc<=60?ST[1]:pc<=80?ST[2]:ST[3];
+ var sb=document.getElementById('cqstatus');
+ var full=pc===100,cs=full?';background:#ff0000;border-color:#ff0000;color:#fff':'',lc=full?'#fff':'var(--mute)',vc=full?'#fff':'var(--gold,#ffd400)',tk=full?'rgba(255,255,255,.35)':'var(--line)',bf=full?'#fff':'var(--gold,#ffd400)';
+ if(sb)sb.innerHTML='<div class="card" style="margin-bottom:12px'+cs+'"><div style="color:'+lc+';font-size:13px;font-weight:700;letter-spacing:.08em">STATUS</div><div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:6px"><div style="font-weight:800;font-size:22px">'+st[0]+'</div><div style="font-weight:800;font-size:22px;color:'+vc+'">'+pc+'%</div></div><div style="height:8px;border-radius:4px;background:'+tk+';margin:10px 0"><div style="width:'+pc+'%;height:100%;border-radius:4px;background:'+bf+'"></div></div><div style="font-size:15px;line-height:1.45">'+st[1]+'</div></div>';
+};
+
+function renRA(){var b=document.getElementById('retach');if(!b)return;b.innerHTML=RA.map(function(k){var i=+k.slice(1)-1;return '<div class="card" style="display:flex;align-items:center;gap:12px;margin:0 0 8px;border:2px solid #ffcc00">'+trophy(1,TC[i])+'<div style="text-align:left"><div style="color:#ffcc00;font-weight:800;font-size:13px;letter-spacing:.06em">CONQUISTA DESBLOQUEADA</div><div style="font-weight:700;font-size:16px;margin-top:2px">'+L[i]+'</div></div></div>'}).join('')}
+function flush(){
+ if(!PQ.length||document.getElementById('cqpop'))return;
+ function hid(i){var e=document.getElementById(i);return !e||e.hidden}
+ var vi=document.getElementById('v-inicio');
+ if(!vi||vi.hidden||(typeof S!=='undefined'&&S&&S.scene))return;
+ if(!(hid('fgt')&&hid('ret')&&hid('cr')&&hid('cqs')&&hid('tut')&&hid('avs')&&hid('ttl')&&hid('scn')))return;
+ var k=PQ.shift(),i=+k.slice(1)-1,o=document.createElement('div');
+ o.id='cqpop';o.style.cssText='position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;padding:20px';
+ o.innerHTML='<div style="max-width:360px;width:100%;box-sizing:border-box;text-align:center;background:var(--card,#1c1c1e);color:var(--ink,#fff);border:2px solid #ffcc00;border-radius:16px;padding:24px 20px"><div style="display:flex;justify-content:center">'+trophy(1,TC[i],68)+'</div><div style="color:#ffcc00;font-weight:800;font-size:14px;letter-spacing:.08em;margin-top:12px">CONQUISTA DESBLOQUEADA</div><div style="font-weight:700;font-size:19px;line-height:1.3;margin-top:8px">'+L[i]+'</div><button class="go" id="cqpopok" type="button" style="margin-top:18px">Continuar</button></div>';
+ document.body.appendChild(o);
+ document.getElementById('cqpopok').onclick=function(){o.remove();setTimeout(flush,200)};
+}
+setInterval(flush,1000);
+try{var _sr=showRet;showRet=function(){var r=_sr.apply(this,arguments);try{renRA()}catch(e){}return r}}catch(e){}
+try{var _s0=save;save=function(){chk();return _s0.apply(this,arguments)}}catch(e){}
+chk();
+})();
 </script><script id="fluidez-js">
 (function(){
 var nav=document.querySelector('nav');if(!nav)return;
@@ -3942,6 +4018,8 @@ var el=document.getElementById('tut'),h=document.getElementById('tuth'),p=docume
 if(!el||!h||!p||!g)return;
 var seq=false,cur=null;
 function seen(k){return !!(S.tt&&S.tt[k])}
+var sk=document.getElementById('tutskip');
+if(sk)sk.onclick=function(){if(!S.tt)S.tt={};ORD.forEach(function(k){S.tt[k]=1});seq=false;el.hidden=true;try{save()}catch(e){}if(window.__tabNow!=='inicio')tab('inicio')};
 g.onclick=function(){el.hidden=true;if(!seq)return;
  var nx=null,i=ORD.indexOf(cur);
  while(++i<ORD.length){if(!seen(ORD[i])){nx=ORD[i];break}}

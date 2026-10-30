@@ -860,8 +860,8 @@ nav button.on::before{border-radius:0 0 3px 3px}
    <button class="go" id="cgo">Começar carreira</button>
   </div>
   <div id="crp" hidden>
-   <div style="display:flex;align-items:center;gap:14px;margin:10px 0 12px"><div id="cpp" style="flex:none;width:54px;height:54px;border-radius:9px;overflow:hidden;background:#000;border:2px solid var(--line)"></div><div style="font:800 26px/1 'Arial Narrow',sans-serif;letter-spacing:.02em;display:flex;align-items:center;gap:7px"><span style="color:var(--mute)">OVR</span><span id="cpo" style="color:#ffd400">–</span></div></div>
-   <button class="go" id="cpdraw" type="button">Sortear lutador</button>
+   <div style="display:flex;align-items:center;gap:14px;margin:0"><div id="cpp" style="flex:none;width:54px;height:54px;border-radius:9px;overflow:hidden;background:#000;border:2px solid var(--line)"></div><div style="font:800 26px/1 'Arial Narrow',sans-serif;letter-spacing:.02em;display:flex;align-items:center;gap:7px"><span style="color:var(--mute)">OVR</span><span id="cpo" style="color:#ffd400">–</span></div></div>
+   <button class="go" id="cpdraw" type="button" style="margin-top:6px">Sortear lutador</button>
    <div style="display:flex;gap:8px;margin:8px 0 12px">
     <button type="button" id="cpsame" disabled class="swp">Trocar por outro da mesma divisão</button>
     <button type="button" id="cpoth" disabled class="swp">Trocar por outra divisão</button>
@@ -1250,7 +1250,7 @@ function potN(){var D=window.__potD,n=0;PAT.forEach(function(k){if(D.locked[k])n
 function drawPot(){var D=window.__potD,c=D.cur,n=potN(),h='';
 if(c&&n<6){h+='<div style="font:800 22px \'Arial Narrow\',sans-serif">'+esc(c.n)+'</div><div style="color:var(--mute);font-size:14px;margin:2px 0 6px">'+c.d+' · '+(c.ix===0?'Campeão':'#'+c.ix)+' · OVR '+c.o+' · '+c.st+'</div>'}
 PAT.forEach(function(k){var L=D.locked[k];
-if(L){h+='<div title="'+esc(L.n)+'" style="background:#ffd400;border:2px solid #ffd400;border-radius:10px;padding:10px;margin:6px 0;color:#1a1300"><div class="row" style="margin:0"><span aria-hidden="true" style="flex:none;width:20px;text-align:center">✅</span><span class="l" style="color:#1a1300">'+k+'</span><div class="bar" style="background:rgba(26,19,0,.25)"><i style="width:'+L.v+'%;background:#1a1300"></i></div><span class="v" style="color:#1a1300;font-weight:800">'+L.v+'</span></div></div>'}
+if(L){h+='<div title="'+esc(L.n)+'" style="background:#ffd400;border:2px solid #ffd400;border-radius:10px;padding:6px 10px;margin:4px 0;color:#1a1300"><div class="row" style="margin:0"><span aria-hidden="true" style="flex:none;width:20px;text-align:center">✅</span><span class="l" style="color:#1a1300">'+k+'</span><div class="bar" style="background:rgba(26,19,0,.25)"><i style="width:'+L.v+'%;background:#1a1300"></i></div><span class="v" style="color:#1a1300;font-weight:800">'+L.v+'</span></div><div style="margin:1px 0 0 0;font-size:17px;line-height:1.15;font-weight:800;color:#1a1300">'+esc(L.n)+'</div></div>'}
 else if(c){var v=c.caps[k],t=potTier(v),sl=D.pick===k;h+='<button type="button" class="row" data-pk="'+k+'" aria-pressed="'+sl+'" style="width:100%;font:inherit;color:var(--ink);text-align:left;cursor:pointer;margin:6px 0;padding:10px;border-radius:10px;border:2px solid '+(sl?'#ffd400':'var(--line)')+';background:'+(sl?'rgba(255,212,0,.14)':'var(--bg)')+'"><span aria-hidden="true" style="flex:none;width:20px;height:20px;border-radius:50%;border:2px solid '+(sl?'#ffd400':'var(--mute)')+';display:inline-flex;align-items:center;justify-content:center"><span style="width:10px;height:10px;border-radius:50%;background:'+(sl?'#ffd400':'transparent')+'"></span></span><span class="l">'+k+'</span><div class="bar"><i style="width:'+v+'%;background:'+(sl?'#ffd400':t)+'"></i></div><span class="v" style="color:'+(sl?'#ffd400':t)+';font-weight:700">'+v+'</span></button>'}
 else{h+='<div class="row" style="padding:10px;border-radius:10px;border:2px dashed var(--line);margin:6px 0;opacity:.55"><span aria-hidden="true" style="flex:none;width:20px"></span><span class="l">'+k+'</span><div class="bar"><i style="width:0"></i></div><span class="v">?</span></div>'}});
 var WW={'Socos':.18,'Chutes':.18,'Defesa':.1,'Wrestling':.18,'Jiu-jitsu':.18,'Cardio':.18},sw=0,sv=0,cn=0;PAT.forEach(function(k){var q=D.locked[k]?D.locked[k].v:(c&&D.pick===k?c.caps[k]:null);if(q!=null){sw+=WW[k];sv+=WW[k]*q;cn++}});
@@ -4131,7 +4131,7 @@ nav{z-index:5;transform:translateZ(0);-webkit-backface-visibility:hidden;backfac
 /* a animação de entrada das abas mantinha uma camada gigante ativa depois de terminar */
 main:not([hidden]){animation-fill-mode:backwards}
 </style>
-<style id="pot-css">#crp{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-top:calc(20px + env(safe-area-inset-top,0px));padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}#crp[hidden],#crs[hidden]{display:none!important}#cpl .row .l small{line-height:1.1}</style>
+<style id="pot-css">#crp{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-top:calc(6px + env(safe-area-inset-top,0px));padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}#crp[hidden],#crs[hidden]{display:none!important}#cpl .row .l small{line-height:1.1}</style>
 <style id="cr-scroll-fix">
 /* Criar lutador: fundo fixo na tela; só a lista de opções rola */
 #cr{background:#2b0f4d!important;overflow:hidden!important;padding:0!important;overscroll-behavior:contain}

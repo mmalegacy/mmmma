@@ -1090,7 +1090,7 @@ function ufcRun(){S.ev.forEach(function(e){if(e.res||e.d>S.day)return;
  if(S.log.length>80)S.log.length=80;var dn=S.ev.filter(function(e){return e.res});if(dn.length>12)S.ev.splice(S.ev.indexOf(dn[0]),1)}
 function injReplace(e,f,inj){var L=lg(f.dv),u={},r=null;e.f.forEach(function(x){u[nn(x.a)]=1;u[nn(x.b)]=1});for(var i=1;i<L.length&&i<=15;i++){var n=L[i].n;if(nn(n)===nn(inj)||u[nn(n)])continue;r=n;break}if(r){f.b=r;f.inj=inj;S.bk[r]=e.d}S.bk[inj]=e.d+60;return r}
 function ufcInj(){S.ev.forEach(function(e){var dl=e.d-S.day;if(e.ij||e.res||dl>10||dl<4)return;e.ij=1;
-  e.f.forEach(function(f){if(!f.ti||f.uf||f.ic||f.vk||f.pl||f.w!=null||Math.random()>=.10)return;var inj=f.b;
+  e.f.forEach(function(f){if(!f.ti||f.uf||f.ic||f.vk||f.pl||f.w!=null||Math.random()>=.10)return;var Lc=lg(f.dv),chn=Lc[0]&&nn(Lc[0].n);if(chn&&nn(f.b)===chn){var sw=f.a;f.a=f.b;f.b=sw}var inj=f.b;
    if(S.ufc&&f.dv===S.wc&&S.rk>=1&&S.rk<=15&&!(S.fs&&S.left<=0)&&!S.scene&&!S.injp&&!(S.rst&&S.day<S.rst)){S.injp={d:e.d,dv:f.dv,inj:inj,ch:f.a,nm:e.nm};S.bk[inj]=e.d+60;return}
    var r=injReplace(e,f,inj);if(S.ufc&&f.dv===S.wc)S.log.unshift([S.day,'UFC: '+nn(inj)+' se lesionou e saiu da disputa de cinturão do '+DV[f.dv][0]+'. '+(r?nn(r):'Ninguém')+' entra no lugar, em '+dt(e.d)+'.'])})})}
 function injPopup(){var m=$('injm');if(!m)return;var I=S.injp;if(I&&I.d<=S.day){S.injp=null;m.style.display='none';injBack();return}if(I&&S.rst&&S.day<S.rst){injRefuse();return}
@@ -2266,7 +2266,8 @@ function okF(q){return !!(q&&!q.vac&&!q.ph&&q.o>0&&q.n!=='Vago'&&String(q.n).rep
 function fixOpp0(o){if(!o||S.st!=='ufc'||o.kind==='zb'||o.kind==='gp')return;if(o.o>0&&o.n!=='Vago'&&String(o.n).replace(/[\u200b\s]/g,''))return;var dv=o.dv!=null?o.dv:S.wc,L=lg(dv),i,f=null;for(i=0;i<L.length;i++)if(okF(L[i])){f=L[i];break}if(f){o.n=nn(f.n);o.o=f.o;o.k=''}}
 function ufcFighter(raw,i,tag,rd){var p=raw[i],zv=function(q){return !!(q&&!q[2]&&q[3]>0&&q[0]!=='Vago'&&String(q[0]).replace(/[\u200b\s]/g,''))};if(!zv(p)){var zq,zf=null;for(zq=i+1;zq<raw.length&&!zf;zq++)if(zv(raw[zq]))zf=raw[zq];for(zq=i-1;zq>=0&&!zf;zq--)if(zv(raw[zq]))zf=raw[zq];if(zf)p=zf}var dr=(S.rk>0&&S.rk<16&&i>=S.rk&&i<16)?i+1:i;return{n:p[0].replace(/ \(interino\)/,''),k:'',o:p[3],r:dr,t:tag||'',rd:(S.fame||0)>=70?5:(rd||3),ev:'UFC',w:Math.random()<.5?0:1}}
 function ufcOffers(){var raw=roster(S.wc,true),g=S.chg,out=[];
- var qq=S.icq&&S.icq[S.wc];if(S.ufc&&qq){if(qq.stage==='int-pl'&&S.rk>=1&&S.rk<=3){var f2=ufcFighter(raw,1,'Disputa do cinturão interino',5);f2.ic=true;return[f2]}
+ var qq=S.icq&&S.icq[S.wc];if(S.ufc&&qq){
+  if(qq.stage==='int-pl'&&S.rk>=1&&S.rk<=3){var f2=ufcFighter(raw,1,'Disputa do cinturão interino',5);f2.ic=true;return[f2]}
   if(qq.stage==='pl-uni'&&S.pic===S.wc){var f3=ufcFighter(raw,0,'Unificação do cinturão',5);f3.uf=true;return[f3]}}
  var I0=S.ic&&S.ic[S.wc];if(S.ufc&&I0&&S.rk===0){var fI=ufcFighter([[I0.n,'',0,I0.o]],0,'Unificação do cinturão contra o campeão interino',5);fI.r=1;fI.ui=true;return[fI]}
  if(g&&g.m==='tri'){var fw=ufcFighter(raw,0,'Cinturão, rumo ao tricampeonato',5);fw.tri=1;var q4=S.ch&&S.ch.length>=3;if(q4){fw.t=S.ch.length===3?'Cinturão, rumo ao quádruplo campeonato':'Cinturão, mais uma categoria';if(S.ch.length===3&&!S.cold){fw.col=1;fw.loc='Coliseu, Roma'}}else if(!S.whd)fw.wh=1;return[fw]}
